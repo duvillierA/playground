@@ -1,0 +1,15 @@
+[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.name Use `--init-author-name` instead.
+[0m[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.email Use `--init-author-email` instead.
+[0m[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.url Use `--init-author-url` instead.
+[0m
+> @repo/test@0.0.0 build
+> echo 'Compiling Typescript' && tsc --version && tsc --project ./tsconfig.json --pretty && tsc-alias --project ./tsconfig.json
+
+Compiling Typescript
+Version 5.4.5
+sh: tsc-alias: command not found
+[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mLifecycle script `build` failed with error:[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mError: command failed[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  in workspace: @repo/test@0.0.0[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  at location: /Users/aduvillier/Documents/projects/Interview/apps/test[0m 
+[0m

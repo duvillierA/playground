@@ -1,0 +1,20 @@
+# Logs
+logs
+*.log
+package.json
+package-lock.json
+storybook-static
+dist
+node_modules
+.next
+.vscode
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# node-waf configuration
+.lock-wscript
+npm-debug.log
+.DS_Store

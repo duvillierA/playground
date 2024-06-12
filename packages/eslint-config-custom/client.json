@@ -1,0 +1,28 @@
+{
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "./base"
+  ],
+  "globals": {
+    "__CLIENT__": true,
+    "__DEV__": true,
+    "Expo": false,
+    "fixture": true,
+    "ga": true,
+    "google": true,
+    "Linear": false,
+    "Power0": false,
+    "Power1": false,
+    "Power2": false,
+    "Power3": false,
+    "Power4": false,
+    "test": false
+  },
+  "rules": {
+    "import/default": [
+      0
+    ]
+  }
+}

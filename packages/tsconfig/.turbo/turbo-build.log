@@ -1,0 +1,8 @@
+[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.name Use `--init-author-name` instead.
+[0m[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.email Use `--init-author-email` instead.
+[0m[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.url Use `--init-author-url` instead.
+[0m
+> @repo/tsconfig@0.0.0 build
+> echo 'no build'
+
+no build

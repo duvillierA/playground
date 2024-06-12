@@ -1,0 +1,40 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "turbo": "^2.0.3",
+    "eslint": "^7.12.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-json": "^2.1.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "stylelint": "^9.4.0",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": [
+      "eslint --fix"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix"
+    ]
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "lint-fix": "turbo lint-fix",
+    "test": "turbo test",
+    "build": "turbo build"
+  }
+}

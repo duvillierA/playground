@@ -1,0 +1,25 @@
+{
+  "extends": "@repo/tsconfig/apps",
+  "allowJs": true,
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "*"
+      ],
+    },
+    "incremental": true,
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "node_modules",
+    "package.json"
+  ],
+  "include": [
+    "*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.json"
+  ]
+}

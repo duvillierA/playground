@@ -1,0 +1,13 @@
+{
+  "name": "@repo/eslint-config-custom",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'no build'"
+  },
+  "exports": {
+    "./base": "./base.json",
+    "./client": "./client.json",
+    "./server": "./server.json"
+  }
+}
