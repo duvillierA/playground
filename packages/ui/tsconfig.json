@@ -2,6 +2,10 @@
   "extends": "@repo/tsconfig/apps",
   "allowJs": true,
   "compilerOptions": {
+    "jsx": "react",
+    "declaration": true,
+    "module": "ES6",
+    "outDir": "dist",
     "baseUrl": "./src",
     "paths": {
       "@/*": [
@@ -9,24 +13,17 @@
       ]
     },
     "incremental": true,
-    "strictNullChecks": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "strictNullChecks": true
   },
   "exclude": [
     "node_modules",
-    "package.json"
+    "package.json",
+    "dist"
   ],
   "include": [
     "*.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.js",
-    "**/*.json",
-    "next-env.d.ts",
-    ".next/types/**/*.ts"
+    "**/*.js"
   ]
 }

@@ -2,14 +2,42 @@
 [0m[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.email Use `--init-author-email` instead.
 [0m[37;40mnpm[0m [0m[30;43mWARN[0m [0m[35mconfig[0m init.author.url Use `--init-author-url` instead.
 [0m
-> @repo/test@0.0.0 build
-> echo 'Compiling Typescript' && tsc --version && tsc --project ./tsconfig.json --pretty && tsc-alias --project ./tsconfig.json
+> @repo/web@0.0.0 build
+> next build
 
-Compiling Typescript
-Version 5.4.5
-sh: tsc-alias: command not found
-[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mLifecycle script `build` failed with error:[0m 
+  [1m[38;2;173;127;168m▲ Next.js 14.2.4[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+ [32m[1m✓[22m[39m Compiled successfully
+[?25l [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ..[2K[1G [37m[1m [22m[39m Linting and checking validity of types  ...[2K[1G[?25h[31m
+Failed to compile.[39m
+[?25l [37m[1m [22m[39m Linting and checking validity of types  .[2K[1G[?25h
+./src/components/typography.tsx
+8:130  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+11:24  Error: Invalid Tailwind CSS classnames order  tailwindcss/classnames-order
+16:59  Warning: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:70  Warning: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:81  Warning: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+16:116  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+16:168  Warning: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+18:67  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+24:189  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+25:86  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+26:178  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+26:263  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+27:177  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+27:239  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+28:88  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+33:17  Error: Invalid Tailwind CSS classnames order  tailwindcss/classnames-order
+34:130  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+35:132  Warning: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+39:17  Error: Invalid Tailwind CSS classnames order  tailwindcss/classnames-order
+43:17  Error: Invalid Tailwind CSS classnames order  tailwindcss/classnames-order
+47:17  Error: Invalid Tailwind CSS classnames order  tailwindcss/classnames-order
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+[?25l [37m[1m [22m[39m Linting and checking validity of types  .[?25h[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mLifecycle script `build` failed with error:[0m 
 [0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mError: command failed[0m 
-[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  in workspace: @repo/test@0.0.0[0m 
-[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  at location: /Users/aduvillier/Documents/projects/Interview/apps/test[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  in workspace: @repo/web@0.0.0[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  at location: /Users/aduvillier/Documents/projects/playground/apps/web[0m 
 [0m
