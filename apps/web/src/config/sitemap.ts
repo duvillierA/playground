@@ -5,25 +5,28 @@ export type Href = {
 }
 
 export type Page = {
-  id: 'about' | 'index'
+  id: keyof IntlMessages
   title: string // keyof IntlMessages
-  description?: string // keyof IntlMessages
 } & Href
 
 export const indexPageUrl = {
-  title: 'index.title',
-  description: 'index.description',
+  title: 'IndexPage.title',
   pathname: '/[locale]',
-  id: 'index'
+  id: 'IndexPage'
 } satisfies Page
 
 export const aboutPageUrl = {
-  title: 'user.title',
-  description: 'index.description',
+  title: 'AboutPage.title',
   pathname: '/[locale]/about',
-  id: 'about'
+  id: 'AboutPage'
+} satisfies Page
+
+export const intlPageUrl = {
+  title: 'IntlPage.title',
+  pathname: '/[locale]/intl',
+  id: 'IntlPage'
 } satisfies Page
 
 export const sitemap = {
-  pages: [indexPageUrl, aboutPageUrl] satisfies Page[]
+  pages: [indexPageUrl, aboutPageUrl, intlPageUrl] satisfies Page[]
 } as const

@@ -19,5 +19,12 @@
       "title": "Titre de la page d'accueil",
       "description": "Description de la page d'accueil"
     }
+  },
+  "IntlPage": {
+    "title": "Titre de la page Titre",
+    "meta": {
+      "title" :"Titre de la page Titre",
+      "description": "Description de la page Intl"
+    }
   }
 }

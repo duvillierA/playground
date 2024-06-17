@@ -19,5 +19,12 @@
       "title" :"Home page title",
       "description": "Home page description"
     }
+  },
+  "IntlPage": {
+    "title": "Intl page",
+    "meta": {
+      "title" :"Intl page title",
+      "description": "Intl page description"
+    }
   }
 }
