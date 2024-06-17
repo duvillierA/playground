@@ -35,7 +35,7 @@
     "eslint-plugin-vitest": "~0.4.1",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
-    "turbo": "^2.0.3",
+    "turbo": "^2.0.4",
     "typescript": "^5.4.5"
   },
   "lint-staged": {
@@ -48,11 +48,13 @@
   },
   "scripts": {
     "precommit": "lint-staged",
+    "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "lint-fix": "turbo lint-fix",
     "test": "turbo test",
-    "build": "turbo build"
+    "start": "turbo start --log-order=stream",
+    "size": "turbo run size"
   },
   "packageManager": "npm@10.1.0"
 }

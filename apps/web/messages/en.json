@@ -1,0 +1,23 @@
+{
+  "AboutPage": {
+    "title": "About page",
+    "meta": {
+      "title" :"About page title",
+      "description": "About page description"
+    }
+  },
+  "Common": {
+    "menu": "Menu",
+    "meta": {
+      "title" :"Common page title",
+      "description": "Common page description"
+    }
+  },
+  "IndexPage": {
+    "title": "Home page",
+    "meta": {
+      "title" :"Home page title",
+      "description": "Home page description"
+    }
+  }
+}

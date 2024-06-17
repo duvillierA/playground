@@ -1,0 +1,23 @@
+{
+  "AboutPage": {
+    "title": "À propos",
+    "meta": {
+      "title": "Titre de la page à propos",
+      "description": "Description de la page à propos"
+    }
+  },
+  "Common": {
+    "menu": "Menu",
+    "meta": {
+      "title" :"Titre par défault",
+      "description": "Description par défault"
+    }
+  },
+  "IndexPage": {
+    "title": "Page d'accueil",
+    "meta": {
+      "title": "Titre de la page d'accueil",
+      "description": "Description de la page d'accueil"
+    }
+  }
+}
