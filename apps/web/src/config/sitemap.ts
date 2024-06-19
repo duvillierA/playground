@@ -6,7 +6,7 @@ export type Href = {
 
 export type Page = {
   id: keyof IntlMessages
-  title: string // keyof IntlMessages
+  title: string
 } & Href
 
 export const indexPageUrl = {

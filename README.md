@@ -15,6 +15,15 @@ Monorepo architecture with:
 - Zod (for runtime type checking)
 - React Hook Form (for form handling)
 
+### Tree
+
+- apps
+  - web
+- packages
+  - eslint-config-custom
+  - tsconfig
+  - ui
+
 ### Scripts
 
 To start developing, run this cmd and open [localhost:3000](http://localhost:3000).

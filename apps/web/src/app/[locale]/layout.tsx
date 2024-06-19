@@ -25,7 +25,7 @@ const RootLayout: React.FC<PropsWithChildren<PageProps>> = async ({ children, pa
         <NextIntlClientProvider messages={messages}>
           <Nav className="container mx-auto" />
           <Main>{children}</Main>
-          <Footer className="container mx-auto"/>
+          <Footer className="container mx-auto" />
         </NextIntlClientProvider>
       </body>
     </html>

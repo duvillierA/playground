@@ -4,12 +4,14 @@
     "private": true,
     "main": "./dist/src/index.js",
     "typings": "./dist/src/index.d.ts",
+    "browserslist": [">0.3%", "not dead", "not op_mini all"],
     "scripts": {
-      "dev": "next dev",
+      "dev": "next dev --turbo",
       "build": "next build",
       "start": "next start",
       "lint": "next lint",
-      "clean": "rm -rf .next"
+      "clean": "rm -rf .next",
+      "test": "vitest"
     },
     "dependencies": {
       "@repo/ui": "*",
@@ -26,6 +28,7 @@
       "@repo/eslint-config-custom": "*",
       "@types/react": "^18.3.3",
       "autoprefixer": "^10.4.19",
-      "tailwindcss": "^3.4.4"
+      "tailwindcss": "^3.4.4",
+      "@next/bundle-analyzer": "14.2.4"
     }
 }

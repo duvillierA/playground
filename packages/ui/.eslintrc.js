@@ -1,6 +1,9 @@
 const path = require('path')
 
-module.exports = {
+/**
+ * @type {import('eslint').Linter.Config}
+ */
+const config = {
   root: true,
   extends: ['@repo/eslint-config-custom/client'],
   parserOptions: {
@@ -13,5 +16,10 @@ module.exports = {
         project: path.resolve(__dirname, 'tsconfig.json')
       }
     }
+  },
+  rules: {
+    'import/no-extraneous-dependencies': ['warn', { devDependencies: true }]
   }
 }
+
+module.exports = config

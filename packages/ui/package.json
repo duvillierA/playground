@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "build": "rollup --config",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "lint": "eslint  \"./src/**/*.{ts,tsx}\""
   },
   "main": "dist/index.js",
   "module": "dist/index.js",

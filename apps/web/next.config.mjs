@@ -1,6 +1,10 @@
 import createNextIntlPlugin from 'next-intl/plugin'
+import createNextBundleAnalyzer from '@next/bundle-analyzer'
 
 const withNextIntl = createNextIntlPlugin('./src/lib/i18n.ts')
+const withBundleAnalyzer = createNextBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true'
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -11,7 +15,10 @@ const nextConfig = {
         destination: '/en'
       }
     ]
+  },
+  experimental: {
+    optimizePackageImports: ['@repo/ui']
   }
 }
 
-export default withNextIntl(nextConfig)
+export default withBundleAnalyzer(withNextIntl(nextConfig))

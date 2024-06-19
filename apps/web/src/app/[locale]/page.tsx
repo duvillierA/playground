@@ -15,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t('description')
   }
 }
+
 const HomePage: React.FC = () => {
   const t = useTranslations(indexPageUrl.id)
   return (
