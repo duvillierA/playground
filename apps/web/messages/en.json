@@ -1,8 +1,8 @@
 {
   "AboutPage": {
-    "title": "About page",
+    "title": "About",
     "meta": {
-      "title" :"About page title",
+      "title" :"About",
       "description": "About page description"
     }
   },
@@ -14,16 +14,16 @@
     }
   },
   "IndexPage": {
-    "title": "Home page",
+    "title": "Home",
     "meta": {
-      "title" :"Home page title",
+      "title" :"Home",
       "description": "Home page description"
     }
   },
   "IntlPage": {
-    "title": "Intl page",
+    "title": "Intl",
     "meta": {
-      "title" :"Intl page title",
+      "title" :"Intl",
       "description": "Intl page description"
     }
   }

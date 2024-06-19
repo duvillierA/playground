@@ -2,7 +2,7 @@
   "AboutPage": {
     "title": "À propos",
     "meta": {
-      "title": "Titre de la page à propos",
+      "title": "À propos",
       "description": "Description de la page à propos"
     }
   },
@@ -16,14 +16,14 @@
   "IndexPage": {
     "title": "Page d'accueil",
     "meta": {
-      "title": "Titre de la page d'accueil",
+      "title": "Page d'accueil",
       "description": "Description de la page d'accueil"
     }
   },
   "IntlPage": {
-    "title": "Titre de la page Titre",
+    "title": "Intl",
     "meta": {
-      "title" :"Titre de la page Titre",
+      "title" :"Intl",
       "description": "Description de la page Intl"
     }
   }
