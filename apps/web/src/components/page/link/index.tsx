@@ -1,25 +1,22 @@
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
 import type { PropsWithChildren } from 'react'
 
 import type { Page } from '@/config/sitemap'
-import { useLinkHref } from '@/hooks/link'
+import { useLink } from '@/hooks/link'
 
 type PageLinkProps = PropsWithChildren<
   {
     page: Page
-    query?: Page['query']
   } & Omit<Parameters<typeof Link>[0], 'href'>
 >
 
-export const PageLink: React.FC<PageLinkProps> = ({ page, query = {}, children, ...props }) => {
-  const locale = useLocale()
-  const href = useLinkHref({
+export const PageLink: React.FC<PageLinkProps> = ({ page, children, ...props }) => {
+  const { pathname } = useLink({
     pathname: page.pathname ?? '/',
-    query: { locale, ...query }
+    query: page.query ?? {}
   })
   return (
-    <Link {...props} href={href}>
+    <Link {...props} href={pathname}>
       {children}
     </Link>
   )

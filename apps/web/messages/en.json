@@ -11,7 +11,8 @@
     "meta": {
       "title" :"Common page title",
       "description": "Common page description"
-    }
+    },
+    "language":  "{locale, select, en {English} fr {Français} other {Unknown}}"
   },
   "IndexPage": {
     "title": "Home",

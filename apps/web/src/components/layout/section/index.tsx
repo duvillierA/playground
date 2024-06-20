@@ -1,6 +1,6 @@
 import React, { type PropsWithChildren } from 'react'
 
-import { classnames } from '@/lib/styles'
+import { cn } from '@/lib/styles'
 
 type SectionProps = PropsWithChildren<{
   asContainer?: boolean
@@ -9,7 +9,7 @@ type SectionProps = PropsWithChildren<{
 export const Section: React.FC<SectionProps> = ({ asContainer, children }) => {
   return (
     <section
-      className={classnames({
+      className={cn({
         'container mx-auto': asContainer
       })}
     >

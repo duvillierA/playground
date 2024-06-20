@@ -1,15 +1,15 @@
 import { useLocale } from 'next-intl'
 
-export type UseLinkHrefProps = {
+export type UseLinkProps = {
   pathname: string
-  query: Record<string, string | string[]>
+  query: Record<string, unknown>
 }
 
 // Handle 3 types of dynamic routes: https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
 // - /[locale]/blog/[slug] segment
 // - /[locale]/blog/[...slug] catchAllSegment
 // - /[locale]/blog/[[...slug]] optionalCatchAllSegment
-export function getLinkHref(pathname: UseLinkHrefProps['pathname'], query: UseLinkHrefProps['query']) {
+export function getLinkPathname(pathname: UseLinkProps['pathname'], query: UseLinkProps['query']) {
   return Object.entries(query).reduce((acc, [key, segment]) => {
     if (typeof segment === 'string') {
       return acc.replace(`[${key}]`, segment)
@@ -27,7 +27,10 @@ export function getLinkHref(pathname: UseLinkHrefProps['pathname'], query: UseLi
   }, pathname)
 }
 
-export function useLinkHref({ pathname, query }: UseLinkHrefProps) {
+export function useLink({ pathname, query }: UseLinkProps) {
   const locale = useLocale()
-  return getLinkHref(pathname, { locale, ...query })
+  const linkPathname = getLinkPathname(pathname, { locale, ...query })
+  return {
+    pathname: linkPathname
+  }
 }
