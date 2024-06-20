@@ -1,15 +1,10 @@
-'use client'
-
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@repo/ui'
 import { Home } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 import { PageLink } from '@/components/page'
-import { locale as locales } from '@/config/locale'
+import { LocaleSwitcher } from '@/components/page/localeSwitcher'
 import { aboutPageUrl, indexPageUrl, intlPageUrl } from '@/config/sitemap'
-import { getLinkPathname } from '@/hooks/link'
 import { cn } from '@/lib/styles'
 
 import NavMenu from './Menu'
@@ -22,8 +17,6 @@ type NavProps = {
 
 export const Nav: React.FC<NavProps> = ({ title, className }) => {
   const t = useTranslations()
-  const defaultValue = useLocale()
-  const router = useRouter()
   return (
     <nav className={cn('border-b sticky top-0 bg-white', className)}>
       <div className="h-14 flex justify-between items-center container mx-auto">
@@ -40,20 +33,7 @@ export const Nav: React.FC<NavProps> = ({ title, className }) => {
           </NavMenu>
         </div>
         <div>
-          <Select onValueChange={(locale) => router.push(getLinkPathname(indexPageUrl.pathname, { locale }))} defaultValue={defaultValue}>
-            <SelectTrigger>
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {locales.locales.map((l) => {
-                return (
-                  <SelectItem key={l} value={l}>
-                    {t('Common.language', { locale: l })}
-                  </SelectItem>
-                )
-              })}
-            </SelectContent>
-          </Select>
+          <LocaleSwitcher />
         </div>
       </div>
     </nav>
