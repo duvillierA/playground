@@ -6,7 +6,7 @@
     "typings": "./dist/src/index.d.ts",
     "browserslist": [">0.3%", "not dead", "not op_mini all"],
     "scripts": {
-      "dev": "next dev --turbo",
+      "dev": "next dev",
       "build": "next build",
       "start": "next start",
       "lint": "next lint",

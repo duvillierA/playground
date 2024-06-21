@@ -1,7 +1,23 @@
 import React, { type PropsWithChildren } from 'react'
 
-type MainProps = PropsWithChildren
+import { cn } from '@/lib/styles'
 
-export const Main: React.FC<MainProps> = ({ children }) => {
-  return <main className="container mx-auto grid gap-2 py-3">{children}</main>
+type MainProps = PropsWithChildren<{
+  asContainer?: boolean
+  className?: string
+}>
+
+export const Main: React.FC<MainProps> = ({ children, className, asContainer }) => {
+  return (
+    <main
+      className={cn(
+        {
+          'container mx-auto': asContainer
+        },
+        className
+      )}
+    >
+      {children}
+    </main>
+  )
 }

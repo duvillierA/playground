@@ -9,7 +9,7 @@ type SectionProps = PropsWithChildren<{
 export const Section: React.FC<SectionProps> = ({ asContainer, children }) => {
   return (
     <section
-      className={cn({
+      className={cn('space-y-2', {
         'container mx-auto': asContainer
       })}
     >

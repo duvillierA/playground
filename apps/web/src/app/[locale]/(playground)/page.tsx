@@ -6,15 +6,14 @@ import { Header, Section } from '@/components/layout'
 import { indexPageUrl } from '@/config/sitemap'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('IndexPage.meta')
+  const t = await getTranslations(`${indexPageUrl.id}.meta`)
 
   return {
     title: t('title'),
     description: t('description')
   }
 }
-
-const HomePage: React.FC = () => {
+const IntlPage: React.FC = () => {
   const t = useTranslations(indexPageUrl.id)
   return (
     <>
@@ -26,4 +25,4 @@ const HomePage: React.FC = () => {
   )
 }
 
-export default HomePage
+export default IntlPage

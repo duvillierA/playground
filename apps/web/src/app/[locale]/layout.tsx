@@ -4,7 +4,6 @@ import { getMessages, getTranslations } from 'next-intl/server'
 import type { PropsWithChildren } from 'react'
 
 import type { PageProps } from '@/app/_interfaces/page'
-import { Footer, Main, Nav } from '@/components/layout'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('Common.meta')
@@ -22,11 +21,7 @@ const RootLayout: React.FC<PropsWithChildren<PageProps>> = async ({ children, pa
   return (
     <html lang={params.locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>
-          <Nav />
-          <Main>{children}</Main>
-          <Footer />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   )
