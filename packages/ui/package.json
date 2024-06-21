@@ -30,7 +30,7 @@
       "require": "./tailwind.config.js"
     }
   },
-  "dependencies": {
+  "peerDependencies": {
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@tailwindcss/forms": "0.5.7",
@@ -38,14 +38,12 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "0.395.0",
-    "shadcn-ui": "^0.8.0",
-    "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "peerDependencies": {
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
-    "tailwindcss": "^3.4.4"
+    "shadcn-ui": "^0.8.0",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss": "^3.4.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@repo/tsconfig": "*",
@@ -58,5 +56,10 @@
     "rollup-plugin-postcss": "^4.0.2",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.1",
+    "embla-carousel-react": "^8.1.5",
+    "vaul": "^0.9.1"
   }
 }

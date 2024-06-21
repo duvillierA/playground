@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
-import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import { Section } from '@/components/layout'
 import { SectionTitle } from '@/components/layout/section/Title'
-import { DashboardCard } from '@/components/module/dashboard/card'
+import { AccessCard } from '@/components/module/access/card'
+import { LogCard } from '@/components/module/log/card'
+import { ObservabilityCard } from '@/components/module/observabillity/card'
+import { SidecarCard } from '@/components/module/sidecar/card'
+import { config } from '@/config'
 import { dashboardPageUrl } from '@/config/sitemap'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -15,16 +18,35 @@ export async function generateMetadata(): Promise<Metadata> {
     description: t('description')
   }
 }
-const DashboardPage: React.FC = () => {
-  const t = useTranslations('Common')
+
+async function getLogs() {
+  return fetch(new URL('/api/logs', config.server.host)).then((res) => res.json())
+}
+
+async function getPageTranslations() {
+  const t = await getTranslations('Common')
+  return {
+    recent: t('recent'),
+    saved: t('saved')
+  }
+}
+
+const DashboardPage: React.FC = async () => {
+  const [translation, { data }] = await Promise.all([getPageTranslations(), getLogs()])
+  const logsCount = 12
   return (
     <>
       <Section>
-        <SectionTitle title={t('recent')} />
-        <DashboardCard loading title="title" description="description" content="content" footer="footer" />
+        <SectionTitle title={translation.recent} />
+        {data.map((log) => (
+          <LogCard key={log.id} updatedAt={log.updatedAt} count={log.count} />
+        ))}
       </Section>
       <Section>
-        <SectionTitle title={t('saved')} />
+        <SectionTitle title={translation.saved} />
+        <AccessCard updatedAt="" count={logsCount} />
+        <ObservabilityCard updatedAt="" count={logsCount} />
+        <SidecarCard updatedAt="" count={logsCount} />
       </Section>
     </>
   )

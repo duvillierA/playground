@@ -19,7 +19,8 @@
     "recent": "Recent",
     "saved": "Saved",
     "search": "Search",
-    "time": "Time"
+    "time": "Time",
+    "updatedRelative": "Updated {time}"
   },
   "DashboardPage": {
     "title": "Search for anything",
@@ -41,7 +42,7 @@
   "Sidecar": {
     "title": "Sidecars"
   },
-  "Observabillity": {
+  "Observability": {
     "title": "Observabillity"
   },
   "IndexPage": {
