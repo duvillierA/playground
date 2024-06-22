@@ -7,8 +7,9 @@ import { AccessCard } from '@/components/module/access/card'
 import { LogCard } from '@/components/module/log/card'
 import { ObservabilityCard } from '@/components/module/observabillity/card'
 import { SidecarCard } from '@/components/module/sidecar/card'
-import { config } from '@/config'
 import { dashboardPageUrl } from '@/config/sitemap'
+import { api } from '@/lib/api'
+import { DashboardCarousel } from '@/components/module/dashboard/carousel'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations(`${dashboardPageUrl.id}.meta`)
@@ -19,10 +20,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-async function getLogs() {
-  return fetch(new URL('/api/logs', config.server.host)).then((res) => res.json())
-}
-
 async function getPageTranslations() {
   const t = await getTranslations('Common')
   return {
@@ -31,22 +28,37 @@ async function getPageTranslations() {
   }
 }
 
+const getDashboardCard = (data: Awaited<ReturnType<typeof api>>['data']['recent'][number]) => {
+  switch (data.type) {
+    case 'logs':
+      return <LogCard key={data.type} data={data} />
+    case 'access':
+      return <AccessCard key={data.type} data={data} />
+    case 'observability':
+      return <ObservabilityCard key={data.type} data={data} />
+    case 'sidecar':
+      return <SidecarCard key={data.type} data={data} />
+    default:
+      return null
+  }
+}
+
 const DashboardPage: React.FC = async () => {
-  const [translation, { data }] = await Promise.all([getPageTranslations(), getLogs()])
-  const logsCount = 12
+  const [translation, { data }] = await Promise.all([getPageTranslations(), api('getLogs', {})])
   return (
     <>
       <Section>
         <SectionTitle title={translation.recent} />
-        {data.map((log) => (
-          <LogCard key={log.id} updatedAt={log.updatedAt} count={log.count} />
-        ))}
+        <DashboardCarousel>
+          {data.recent.map(getDashboardCard)}
+        </DashboardCarousel>
       </Section>
       <Section>
         <SectionTitle title={translation.saved} />
-        <AccessCard updatedAt="" count={logsCount} />
-        <ObservabilityCard updatedAt="" count={logsCount} />
-        <SidecarCard updatedAt="" count={logsCount} />
+        <DashboardCarousel>
+          {data.saved.map(getDashboardCard)}
+        </DashboardCarousel>
+
       </Section>
     </>
   )

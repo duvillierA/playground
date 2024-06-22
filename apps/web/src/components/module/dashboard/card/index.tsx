@@ -1,17 +1,20 @@
 'use client'
 
+import type { LogDocument } from '@/app/api/logs/route'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Skeleton } from '@repo/ui'
 import { Info } from 'lucide-react'
+import { useFormatter, useTranslations } from 'next-intl'
 
 export type DashboardCardProps = {
   loading?: boolean
   title: React.ReactNode
-  description: React.ReactNode
   children: React.ReactNode
-  footer: React.ReactNode
+  data: LogDocument
 }
 
-export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, description, children, footer }) => {
+export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, data, children }) => {
+  const t = useTranslations()
+  const format = useFormatter()
   return (
     <Card className="grid md:grid-cols-2 gap-4 md:gap-2 p-6">
       <div className="flex flex-col justify-between space-y-2">
@@ -23,13 +26,13 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, de
           </CardTitle>
           <CardDescription>
             <Skeleton className="w-full" loading={loading}>
-              {description}
+              {t('Common.updatedRelative', { time: format.relativeTime(new Date(data.updatedAt)) })}
             </Skeleton>
           </CardDescription>
         </CardHeader>
         <CardFooter className="flex justify-between text-muted-foreground p-0">
           <Skeleton className="w-full inline-flex items-center text-xs" loading={loading}>
-            <Info className="size-4 mr-1" /> {footer}
+            <Info className="size-4 mr-1" /> {t('Log.update', { count: data.count })}
           </Skeleton>
         </CardFooter>
       </div>

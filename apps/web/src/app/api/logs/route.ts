@@ -1,33 +1,51 @@
 import { sub } from 'date-fns'
 import { NextRequest, NextResponse } from 'next/server'
 
-interface logsDocument {
+export interface LogDocumentBase {
   type: 'access' | 'sidecar' | 'observability' | 'logs'
   count: number
   updatedAt: string
   createdAt: string
 }
 
-type logsCategory = 'recent' | 'saved'
+export interface LogDocument extends LogDocumentBase {
+  type: 'access' | 'sidecar' | 'observability' | 'logs'
+  count: number
+  updatedAt: string
+  createdAt: string
+}
+
+
+export const logRoute = {
+  pathname: '/api/logs',
+  method: 'GET'
+} as const
+
+export type LogRequest = {
+  body: Record<string, never>
+  response: {
+    data: {
+      saved: LogDocument[]
+      recent: LogDocument[]
+    }
+  }
+}
 
 export async function GET (req: NextRequest): Promise<NextResponse> {
-  const { searchParams } = new URL(req.url)
-  const category = (searchParams.get('category') || 'recent') as logsCategory
-
-  const data: logsDocument[] = [{
+  const data: LogDocument[] = [{
     'type': 'logs',
-    'count': 36,
+    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
       days: 2
     }).toISOString(),
     'createdAt': sub(new Date(), {
-      days: 4
+      days: 3
     }).toISOString()
   }, {
     'type': 'access',
-    'count': 36,
+    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
-      days: 2
+      days: 3
     }).toISOString(),
     'createdAt': sub(new Date(), {
       days: 4
@@ -35,26 +53,31 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
   },
   {
     'type': 'observability',
-    'count': 36,
+    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
-      days: 2
+      days: 5
     }).toISOString(),
     'createdAt': sub(new Date(), {
-      days: 4
+      days: 6
     }).toISOString()
   },
   {
     'type': 'sidecar',
-    'count': 36,
+    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
-      days: 2
+      days: 1
     }).toISOString(),
     'createdAt': sub(new Date(), {
-      days: 4
+      days: 2
     }).toISOString()
   }]
 
-  return NextResponse.json({
-    data: category === 'recent' ? data.slice(0, 1) : data.shift()
-  })
+  const response = {
+    data: {
+      recent: data.slice(0, 1),
+      saved: data.slice(1)
+    }
+  } satisfies LogRequest['response']
+
+  return NextResponse.json(response)
 }

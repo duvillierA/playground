@@ -7,7 +7,8 @@
     }
   },
   "Access": {
-    "title": "Access"
+    "title": "Access",
+    "period": "Access over {count, plural, =0 {day} =1 {day} other {# days}}"
   },
   "Common": {
     "language":  "{locale, select, en {English} fr {Français} other {Unknown}}",
@@ -20,6 +21,11 @@
     "saved": "Saved",
     "search": "Search",
     "time": "Time",
+    "totalViews": "Total views",
+    "updated": "Updated",
+    "updatedAt": "Updated at {date, date, short} {time, time, short}",
+    "updatedAtDate": "Updated at {date, date, short}",
+    "updatedAtTime": "Updated at {time, time, short}",
     "updatedRelative": "Updated {time}"
   },
   "DashboardPage": {
@@ -31,7 +37,8 @@
   },
   "Log": {
     "title": "Logs",
-    "update": "{count, plural, =0 {no log} =1 {one log} other {# new logs}} since update"
+    "update": "{count, plural, =0 {no log} =1 {one log} other {# new logs}} since update",
+    "relative": "Logs / Time"
   },
   "Query": {
     "title": "Queries",

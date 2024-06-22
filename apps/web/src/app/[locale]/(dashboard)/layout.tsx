@@ -10,7 +10,7 @@ const DashboardLayout: React.FC<PropsWithChildren<PageProps>> = async ({ childre
       <div className="bg-white">
         <DashboardHeader />
       </div>
-      <Main asContainer className="space-y-6 py-12">
+      <Main asContainer className="space-y-8 py-12">
         {children}
       </Main>
     </div>
