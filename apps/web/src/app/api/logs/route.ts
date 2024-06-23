@@ -1,19 +1,16 @@
 import { sub } from 'date-fns'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
+import type { ApplicationDocument } from '@/app/api/applications/route'
 
 export interface LogDocumentBase {
-  type: 'access' | 'sidecar' | 'observability' | 'logs'
+  type: ApplicationDocument['code']
+  category: ApplicationDocument['category']
   count: number
   updatedAt: string
   createdAt: string
 }
 
-export interface LogDocument extends LogDocumentBase {
-  type: 'access' | 'sidecar' | 'observability' | 'logs'
-  count: number
-  updatedAt: string
-  createdAt: string
-}
+export interface LogDocument extends LogDocumentBase {}
 
 
 export const logRoute = {
@@ -22,7 +19,7 @@ export const logRoute = {
 } as const
 
 export type LogRequest = {
-  body: Record<string, never>
+  body: Record<string, never> // ZOD interface
   response: {
     data: {
       saved: LogDocument[]
@@ -31,9 +28,10 @@ export type LogRequest = {
   }
 }
 
-export async function GET (req: NextRequest): Promise<NextResponse> {
+export async function GET (): Promise<NextResponse> {
   const data: LogDocument[] = [{
     'type': 'logs',
+    'category': 'security',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
       days: 3
@@ -43,6 +41,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
     }).toISOString()
   }, {
     'type': 'access',
+    'category': 'security',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
       days: 1
@@ -53,6 +52,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
   },
   {
     'type': 'observability',
+    'category': 'data',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
       days: 2
@@ -63,6 +63,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
   },
   {
     'type': 'sidecar',
+    'category': 'tools',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
       days: 3

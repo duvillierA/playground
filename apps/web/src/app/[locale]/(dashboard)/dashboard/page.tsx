@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
+import type { LogDocument } from '@/app/api/logs/route'
 import { Section } from '@/components/layout'
 import { SectionTitle } from '@/components/layout/section/Title'
 import { AccessCard } from '@/components/module/access/card'
@@ -28,16 +29,16 @@ async function getPageTranslations() {
   }
 }
 
-const getDashboardCard = (data: Awaited<ReturnType<typeof api>>['data']['recent'][number]) => {
+const getDashboardCard = (data: LogDocument) => {
   switch (data.type) {
     case 'logs':
-      return <LogCard key={data.type} data={data} />
+      return <LogCard data={data} />
     case 'access':
-      return <AccessCard key={data.type} data={data} />
+      return <AccessCard data={data} />
     case 'observability':
-      return <ObservabilityCard key={data.type} data={data} />
+      return <ObservabilityCard data={data} />
     case 'sidecar':
-      return <SidecarCard key={data.type} data={data} />
+      return <SidecarCard data={data} />
     default:
       return null
   }

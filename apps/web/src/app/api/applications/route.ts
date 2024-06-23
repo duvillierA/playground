@@ -1,0 +1,28 @@
+import { NextResponse } from 'next/server'
+
+import { APPLICATIONS } from '@/lib/constants'
+
+export type ApplicationDocument = (typeof APPLICATIONS)[number]
+
+export const ApplicationRoute = {
+  pathname: '/api/applications',
+  method: 'GET'
+} as const
+
+export type ApplicationRequest = {
+  body: Record<string, never> // ZOD interface
+  response: {
+    applications: ApplicationDocument[]
+  }
+}
+
+export const revalidate = 600
+export async function GET(): Promise<NextResponse> {
+  const applications: ApplicationDocument[] = [...APPLICATIONS]
+
+  const response = {
+    applications
+  } satisfies ApplicationRequest['response']
+
+  return NextResponse.json(response)
+}

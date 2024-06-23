@@ -6,6 +6,8 @@ import { useFormatter, useTranslations } from 'next-intl'
 
 import type { LogDocument } from '@/app/api/logs/route'
 
+import { ApplicationCategoryBadge } from '../../application/badge'
+
 export type DashboardCardProps = {
   loading?: boolean
   title: React.ReactNode
@@ -21,8 +23,11 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
       <div className="flex flex-col justify-between space-y-2">
         <CardHeader className="p-0">
           <CardTitle className="text-foreground/70 font-medium text-xl">
-            <Skeleton className="w-full" loading={loading}>
+            <Skeleton loading={loading} className="mr-2">
               {title}
+            </Skeleton>
+            <Skeleton>
+              <ApplicationCategoryBadge category={data.category} />
             </Skeleton>
           </CardTitle>
           <CardDescription>
@@ -36,8 +41,8 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
             <Info className="size-4 mr-1" /> {t('Log.update', { count: data.count })}
           </Skeleton>
           <Button size="sm" variant="secondary">
-            <ChevronRight size={20} />
             {t('Common.viewMore')}
+            <ChevronRight size={18} />
           </Button>
         </CardFooter>
       </div>

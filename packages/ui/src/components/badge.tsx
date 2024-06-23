@@ -9,7 +9,12 @@ const badgeVariants = cva('inline-flex items-center rounded-full border px-2.5 p
       default: 'border-transparent bg-primary text-primary-foreground hover:bg-primary/80',
       secondary: 'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
       destructive: 'border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80',
-      outline: 'text-foreground'
+      outline: 'text-foreground',
+      'application-data': 'border-transparent bg-application-data text-application-data-foreground hover:bg-application-data/80',
+      'application-security': 'border-transparent bg-application-security text-application-security-foreground hover:bg-application-security/80',
+      'application-tools': 'border-transparent bg-application-tools text-application-tools-foreground hover:bg-application-tools/80',
+      'application-store': 'border-transparent bg-application-store text-application-store-foreground hover:bg-application-store/80',
+      'application-settings': 'border-transparent bg-application-settings text-application-settings-foreground hover:bg-application-settings/80'
     }
   },
   defaultVariants: {
