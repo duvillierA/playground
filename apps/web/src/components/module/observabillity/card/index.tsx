@@ -1,3 +1,4 @@
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
@@ -31,12 +32,17 @@ export const ObservabilityCard: React.FC<ObservabilityCardProps> = ({ data, load
           <StatCard
             title={t('Query.weeklyTrend')}
             value={
-              <IntlNumber
-                value={250 / 100}
-                options={{
-                  style: 'percent'
-                }}
-              />
+              <span className="text-green-600 inline-flex space-x-0.5 items-center">
+                <ArrowUpRight className="size-6" />
+                <span>
+                  <IntlNumber
+                    value={250 / 100}
+                    options={{
+                      style: 'percent'
+                    }}
+                  />
+                </span>
+              </span>
             }
           />
         </div>

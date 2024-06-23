@@ -4,12 +4,12 @@ import { getTranslations } from 'next-intl/server'
 import { Section } from '@/components/layout'
 import { SectionTitle } from '@/components/layout/section/Title'
 import { AccessCard } from '@/components/module/access/card'
+import { DashboardCarousel, DashboardCarouselItem } from '@/components/module/dashboard/carousel'
 import { LogCard } from '@/components/module/log/card'
 import { ObservabilityCard } from '@/components/module/observabillity/card'
 import { SidecarCard } from '@/components/module/sidecar/card'
 import { dashboardPageUrl } from '@/config/sitemap'
 import { api } from '@/lib/api'
-import { DashboardCarousel } from '@/components/module/dashboard/carousel'
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations(`${dashboardPageUrl.id}.meta`)
@@ -50,15 +50,18 @@ const DashboardPage: React.FC = async () => {
       <Section>
         <SectionTitle title={translation.recent} />
         <DashboardCarousel>
-          {data.recent.map(getDashboardCard)}
+          {data.recent.map((d) => (
+            <DashboardCarouselItem key={d.type}>{getDashboardCard(d)}</DashboardCarouselItem>
+          ))}
         </DashboardCarousel>
       </Section>
       <Section>
         <SectionTitle title={translation.saved} />
         <DashboardCarousel>
-          {data.saved.map(getDashboardCard)}
+          {data.saved.map((d) => (
+            <DashboardCarouselItem key={d.type}>{getDashboardCard(d)}</DashboardCarouselItem>
+          ))}
         </DashboardCarousel>
-
       </Section>
     </>
   )

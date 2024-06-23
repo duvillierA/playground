@@ -1,8 +1,9 @@
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import { IntlDateTime } from '@/components/common/intl'
+import { IntlDateTime, IntlNumber } from '@/components/common/intl'
 import { DashboardCard, DashboardCardContent, type DashboardCardProps } from '@/components/module/dashboard/card'
+import { StatCard } from '@/components/module/dashboard/card/stat'
 
 interface SidecarCardProps {
   data: DashboardCardProps['data']
@@ -25,7 +26,20 @@ export const SidecarCard: React.FC<SidecarCardProps> = ({ data, loading }) => {
           />
         }
       >
-        content
+        <div className="grid grid-cols-2 gap-2 items-stretch">
+          <StatCard title={t('Query.total')} value={<IntlNumber value={78000} />} />
+          <StatCard
+            title={t('Query.weeklyTrend')}
+            value={
+              <IntlNumber
+                value={250 / 100}
+                options={{
+                  style: 'percent'
+                }}
+              />
+            }
+          />
+        </div>
       </DashboardCardContent>
     </DashboardCard>
   )

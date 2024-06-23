@@ -1,15 +1,23 @@
 'use client'
 
+import { badgeVariants } from '@repo/ui'
 import type { PropsWithChildren } from 'react'
 
-export type KbdProps = PropsWithChildren<{
-  key: string
-}>
+import { cn } from '@/lib/styles'
 
-export const Kbd = ({ key }: KbdProps) => {
+export type KbdProps = PropsWithChildren<{
+  value: string
+  description: string
+}>
+const className = badgeVariants({
+  variant: 'outline'
+})
+
+export const Kbd = ({ value, description }: KbdProps) => {
   return (
-    <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
-      <span className="text-xs">⌘</span> {key}
-    </kbd>
+    <span className="inline-flex space-x-1 items-center">
+      <kbd className={cn(className, 'text-muted-foreground bg-white font-normal shadow-sm')}>{value}</kbd>
+      {description && <small className="text-muted-foreground text-sm">{description}</small>}
+    </span>
   )
 }

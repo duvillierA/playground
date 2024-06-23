@@ -36,7 +36,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
     'type': 'logs',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
-      days: 2
+      days: 3
     }).toISOString(),
     'createdAt': sub(new Date(), {
       days: 3
@@ -45,7 +45,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
     'type': 'access',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
-      days: 3
+      days: 1
     }).toISOString(),
     'createdAt': sub(new Date(), {
       days: 4
@@ -55,7 +55,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
     'type': 'observability',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
-      days: 5
+      days: 2
     }).toISOString(),
     'createdAt': sub(new Date(), {
       days: 6
@@ -65,7 +65,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
     'type': 'sidecar',
     'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
     'updatedAt': sub(new Date(), {
-      days: 1
+      days: 3
     }).toISOString(),
     'createdAt': sub(new Date(), {
       days: 2
@@ -75,7 +75,7 @@ export async function GET (req: NextRequest): Promise<NextResponse> {
   const response = {
     data: {
       recent: data.slice(0, 1),
-      saved: data.slice(1)
+      saved: data.sort((a, b) => +new Date(b.updatedAt) - +new Date(a.updatedAt))
     }
   } satisfies LogRequest['response']
 

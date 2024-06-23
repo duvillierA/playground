@@ -1,28 +1,31 @@
 'use client'
 
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@repo/ui'
+import { Carousel, CarouselContent, CarouselItem } from '@repo/ui'
+import type { PropsWithChildren } from 'react'
 import type React from 'react'
 
-export const DashboardCarousel: React.FC<{
-  children: React.ReactNode[]
-}> = ({ children }) => {
+export const DashboardCarousel: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <Carousel
       opts={{
         align: 'start',
-        loop: true
+        loop: true,
+        breakpoints: {
+          '340': {
+            active: false
+          }
+        }
       }}
-      className="w-full"
+      // eslint-disable-next-line tailwindcss/enforces-shorthand
+      className="w-full -left-0 -right-0"
     >
-      <CarouselContent>
-        {children.map((child, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-            {child}
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselContent>{children}</CarouselContent>
+      {/* <CarouselPrevious />
+      <CarouselNext /> */}
     </Carousel>
   )
+}
+
+export const DashboardCarouselItem: React.FC<PropsWithChildren> = ({ children }) => {
+  return <CarouselItem className="md:basis-1/2 lg:basis-1/2">{children}</CarouselItem>
 }

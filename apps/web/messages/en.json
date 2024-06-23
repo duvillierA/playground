@@ -26,7 +26,8 @@
     "updatedAt": "Updated at {date, date, short} {time, time, short}",
     "updatedAtDate": "Updated at {date, date, short}",
     "updatedAtTime": "Updated at {time, time, short}",
-    "updatedRelative": "Updated {time}"
+    "updatedRelative": "Updated {time}",
+    "viewMore": "View more"
   },
   "DashboardPage": {
     "title": "Search for anything",

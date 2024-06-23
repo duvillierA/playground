@@ -24,6 +24,8 @@
       "react-dom": "~18.2.0",
       "react-hook-form": "^7.51.5",
       "swr": "^2.2.5",
+      "@nivo/bar": "0.87.0",
+      "@nivo/calendar": "0.87.0",
       "tailwind-merge": "^2.3.0"
     },
     "devDependencies": {
