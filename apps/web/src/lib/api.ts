@@ -24,7 +24,7 @@ const fetcher = (pathname: string, method: 'GET' | 'POST', body?: Record<string,
     ...opts,
     method,
     headers: {
-      'Content-Type': 'application/json'
+      'content-type': 'application/json;charset=UTF-8'
     }
   }
 
@@ -36,7 +36,11 @@ const fetcher = (pathname: string, method: 'GET' | 'POST', body?: Record<string,
     }
   }
 
-  return fetch(url, options).then((res) => res.json())
+  console.log('fetcher', config.server.host, url)
+  return fetch(url, options).then((res) => {
+    console.log('api response', res.status, res.ok)
+    return res.json()
+  })
 }
 
 export const api = <Action extends keyof ApiRequest>(action: Action, body: ApiRequest[Action]['body'], opts?: RequestInit): Promise<ApiRequest[Action]['response']> => {
