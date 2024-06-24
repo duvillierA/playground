@@ -1,7 +1,7 @@
 import { Calendar } from 'lucide-react'
 import React from 'react'
 
-import { IntlDateTime } from '@/components/common/intl'
+import { IntlDateTime } from '@/components/common/intl/date/dateTime'
 import { cn } from '@/lib/styles'
 
 type FooterProps = {

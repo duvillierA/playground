@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import { Header } from '@/components/layout'
+import { Header } from '@/components/layout/header'
 import { DashboardCommand } from '@/components/module/dashboard/command'
 
 interface DashboardHeaderProps {}

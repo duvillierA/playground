@@ -7,7 +7,7 @@ import { cn } from '@/lib/styles'
 
 export type KbdProps = PropsWithChildren<{
   value: string
-  description: string
+  description?: string
 }>
 const className = badgeVariants({
   variant: 'outline'

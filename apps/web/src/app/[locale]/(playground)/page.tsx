@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
-import { Header, Section } from '@/components/layout'
+import { Header } from '@/components/layout/header'
+import { Section } from '@/components/layout/section'
 import { indexPageUrl } from '@/config/sitemap'
 
 export async function generateMetadata(): Promise<Metadata> {

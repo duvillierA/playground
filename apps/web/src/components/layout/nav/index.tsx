@@ -2,13 +2,12 @@ import { Home } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import { PageLink } from '@/components/page'
+import NavMenu from '@/components/layout/nav/Menu'
+import NavMenuItem from '@/components/layout/nav/Menu/Item'
+import { PageLink } from '@/components/page/link'
 import { LocaleSwitcher } from '@/components/page/localeSwitcher'
 import { aboutPageUrl, indexPageUrl, intlPageUrl } from '@/config/sitemap'
 import { cn } from '@/lib/styles'
-
-import NavMenu from './Menu'
-import NavMenuItem from './Menu/Item'
 
 type NavProps = {
   title?: string

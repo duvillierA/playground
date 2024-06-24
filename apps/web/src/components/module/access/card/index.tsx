@@ -30,7 +30,7 @@ export const AccessCard: React.FC<AccessCardProps> = ({ data, loading }) => {
           </span>
         }
       >
-        <div className="h-[100px]">
+        <div className="h-[105px]">
           <ChartsTimeRange data={chartData} from={subDays(now, fromDays).toISOString()} to={now.toISOString()} />
         </div>
       </DashboardCardContent>

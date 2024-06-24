@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 
 import type { PageProps } from '@/app/_interfaces/page'
-import { Main } from '@/components/layout'
+import { Main } from '@/components/layout/main'
 import { DashboardHeader } from '@/components/module/dashboard/header'
 
 const DashboardLayout: React.FC<PropsWithChildren<PageProps>> = async ({ children }) => {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 
 import type { LogDocument } from '@/app/api/logs/route'
-import { Section } from '@/components/layout'
+import { Section } from '@/components/layout/section'
 import { SectionTitle } from '@/components/layout/section/Title'
 import { AccessCard } from '@/components/module/access/card'
 import { DashboardCarousel, DashboardCarouselItem } from '@/components/module/dashboard/carousel'

@@ -35,10 +35,7 @@ const fetcher = (pathname: string, method: 'GET' | 'POST', body?: Record<string,
       url.pathname = `${url.pathname}?${new URLSearchParams(body as Record<string, string>)}`
     }
   }
-
-  console.log('fetcher', config.server.host, url)
   return fetch(url, options).then((res) => {
-    console.log('api response', res.status, res.ok)
     return res.json()
   })
 }

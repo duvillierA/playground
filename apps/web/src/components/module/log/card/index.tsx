@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl'
 import React from 'react'
 
 import { ChartsBar } from '@/components/common/charts/bar'
-import { IntlDateTime } from '@/components/common/intl'
+import { IntlDateTime } from '@/components/common/intl/date/dateTime'
 import { DashboardCard, DashboardCardContent, type DashboardCardProps } from '@/components/module/dashboard/card'
 import { generateChartData } from '@/lib/chart'
 
@@ -31,7 +31,7 @@ export const LogCard: React.FC<LogCardProps> = ({ data, loading }) => {
           />
         }
       >
-        <div className="w-full h-[80px]">
+        <div className="w-full h-[105px]">
           <ChartsBar data={chartData} keys={['count']} indexBy="day" />
         </div>
       </DashboardCardContent>

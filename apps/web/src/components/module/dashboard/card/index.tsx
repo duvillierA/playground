@@ -19,8 +19,8 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
   const t = useTranslations()
   const format = useFormatter()
   return (
-    <Card className="grid md:grid-cols-3 gap-4 md:gap-4 p-6">
-      <div className="md:col-span-1 flex flex-col justify-between space-y-2">
+    <Card className="grid md:grid-cols-5 gap-4 md:gap-4 p-6">
+      <div className="md:col-span-2 flex flex-col justify-between space-y-2">
         <CardHeader className="p-0">
           <CardTitle className="text-foreground/70 font-medium text-xl">
             <Skeleton loading={loading} className="mr-2">
@@ -36,17 +36,17 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
             </Skeleton>
           </CardDescription>
         </CardHeader>
-        <CardFooter className="md:flex md:justify-between items-center text-muted-foreground p-0">
+        <CardFooter className="md:block items-center text-muted-foreground p-0">
           <Skeleton className="w-full inline-flex items-center text-xs" loading={loading}>
             <Info className="size-4 mr-1" /> {t('Log.update', { count: data.count })}
           </Skeleton>
-          <Button size="sm" variant="secondary">
+          <Button size="sm" variant="secondary" className="w-full">
             {t('Common.viewMore')}
             <ChevronRight size={18} />
           </Button>
         </CardFooter>
       </div>
-      <div className="md:col-span-2">{children}</div>
+      <div className="md:col-span-3">{children}</div>
     </Card>
   )
 }

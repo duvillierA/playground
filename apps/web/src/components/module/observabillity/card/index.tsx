@@ -1,8 +1,9 @@
-import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import { IntlDateTime, IntlNumber } from '@/components/common/intl'
+import Icon from '@/components/common/icon'
+import { IntlDateTime } from '@/components/common/intl/date/dateTime'
+import { IntlNumber } from '@/components/common/intl/number'
 import { DashboardCard, DashboardCardContent, type DashboardCardProps } from '@/components/module/dashboard/card'
 import { StatCard } from '@/components/module/dashboard/card/stat'
 
@@ -33,7 +34,7 @@ export const ObservabilityCard: React.FC<ObservabilityCardProps> = ({ data, load
             title={t('Query.weeklyTrend')}
             value={
               <span className="text-green-600 inline-flex space-x-0.5 items-center">
-                <ArrowUpRight className="size-6" />
+                <Icon name="trending-up" className="size-6" />
                 <span>
                   <IntlNumber
                     value={250 / 100}
