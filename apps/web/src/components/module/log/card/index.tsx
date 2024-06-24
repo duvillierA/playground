@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
@@ -11,8 +12,11 @@ interface LogCardProps {
   loading?: DashboardCardProps['loading']
 }
 
+const chartData = generateChartData(format(new Date(), 'yyyy-MM-dd'), 20)
+
 export const LogCard: React.FC<LogCardProps> = ({ data, loading }) => {
   const t = useTranslations()
+
   return (
     <DashboardCard title={t('Log.title')} data={data} loading={loading}>
       <DashboardCardContent
@@ -28,7 +32,7 @@ export const LogCard: React.FC<LogCardProps> = ({ data, loading }) => {
         }
       >
         <div className="w-full h-[80px]">
-          <ChartsBar data={generateChartData('2024-01-20', 20)} keys={['count']} indexBy="day" />
+          <ChartsBar data={chartData} keys={['count']} indexBy="day" />
         </div>
       </DashboardCardContent>
     </DashboardCard>

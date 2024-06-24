@@ -4,11 +4,6 @@ import { APPLICATIONS } from '@/lib/constants'
 
 export type ApplicationDocument = (typeof APPLICATIONS)[number]
 
-export const ApplicationRoute = {
-  pathname: '/api/applications',
-  method: 'GET'
-} as const
-
 export type ApplicationRequest = {
   body: Record<string, never> // ZOD interface
   response: {

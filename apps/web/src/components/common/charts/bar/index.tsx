@@ -8,7 +8,7 @@ const ResponsiveBar = dynamic(() => import('@nivo/bar').then((m) => m.Responsive
 })
 
 export type ChartsBarProps = {
-  data: Record<string, string | number | Date>[]
+  data: Record<string, string | number>[]
   indexBy: string
   keys: string[]
 }
@@ -29,7 +29,7 @@ export const ChartsBar: React.FC<ChartsBarProps> = ({ ...props }) => {
       padding={0.3}
       valueScale={{ type: 'linear' }}
       indexScale={{ type: 'band', round: true }}
-      colors={({ id, data }) => data[`${id}Color`]}
+      colors={({ id, data }) => (data as any)[`${id}Color`]}
       borderColor={{
         from: 'color',
         modifiers: [['darker', 1.6]]
@@ -67,8 +67,6 @@ export const ChartsBar: React.FC<ChartsBarProps> = ({ ...props }) => {
         }
       ]}
       animate
-      motionStiffness={90}
-      motionDamping={15}
     />
   )
 }

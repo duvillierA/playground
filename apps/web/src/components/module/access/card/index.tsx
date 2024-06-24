@@ -10,8 +10,9 @@ interface AccessCardProps {
   loading?: DashboardCardProps['loading']
 }
 
+const fromDays = 90
 const now = new Date()
-const chartData = [...Array(30).keys()].map((i) => ({
+const chartData = [...Array(fromDays).keys()].map((i) => ({
   day: format(subDays(now, i), 'yyyy-MM-dd'),
   value: Math.floor(Math.random() * (100 + 1))
 }))
@@ -21,7 +22,7 @@ export const AccessCard: React.FC<AccessCardProps> = ({ data, loading }) => {
   return (
     <DashboardCard title={t('Access.title')} data={data} loading={loading}>
       <DashboardCardContent
-        title={t('Access.period', { count: 30 })}
+        title={t('Access.period', { count: fromDays })}
         footer={
           <span className="space-x-1">
             <span>{t('Common.totalViews')}</span>
@@ -30,7 +31,7 @@ export const AccessCard: React.FC<AccessCardProps> = ({ data, loading }) => {
         }
       >
         <div className="h-[100px]">
-          <ChartsTimeRange data={chartData} from={subDays(now, 80).toISOString()} to={now.toISOString()} />
+          <ChartsTimeRange data={chartData} from={subDays(now, fromDays).toISOString()} to={now.toISOString()} />
         </div>
       </DashboardCardContent>
     </DashboardCard>

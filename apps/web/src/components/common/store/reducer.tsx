@@ -1,4 +1,4 @@
-import type { ApplicationDocument } from '@/app/api/applications';
+import type { ApplicationDocument } from '@/app/api/applications/route'
 
 export type StoreState = {
   applications: ApplicationDocument[]

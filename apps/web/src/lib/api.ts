@@ -1,13 +1,17 @@
 import type { ApplicationRequest } from '@/app/api/applications/route'
-import { ApplicationRoute } from '@/app/api/applications/route'
 import type { LogRequest } from '@/app/api/logs/route'
-import { logRoute } from '@/app/api/logs/route'
 import { config } from '@/config'
 
 const apiRoute = {
-  getLogs: logRoute,
-  getApplications: ApplicationRoute
-} as const
+  getLogs: {
+    pathname: '/api/logs',
+    method: 'GET'
+  },
+  getApplications: {
+    pathname: '/api/applications',
+    method: 'GET'
+  }
+} satisfies Record<string, { pathname: string; method: 'GET' | 'POST' }>
 
 export type ApiRequest = {
   getLogs: LogRequest

@@ -12,12 +12,6 @@ export interface LogDocumentBase {
 
 export interface LogDocument extends LogDocumentBase {}
 
-
-export const logRoute = {
-  pathname: '/api/logs',
-  method: 'GET'
-} as const
-
 export type LogRequest = {
   body: Record<string, never> // ZOD interface
   response: {

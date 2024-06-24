@@ -19,8 +19,8 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
   const t = useTranslations()
   const format = useFormatter()
   return (
-    <Card className="grid md:grid-cols-2 gap-4 md:gap-4 p-6">
-      <div className="flex flex-col justify-between space-y-2">
+    <Card className="grid md:grid-cols-3 gap-4 md:gap-4 p-6">
+      <div className="md:col-span-1 flex flex-col justify-between space-y-2">
         <CardHeader className="p-0">
           <CardTitle className="text-foreground/70 font-medium text-xl">
             <Skeleton loading={loading} className="mr-2">
@@ -46,7 +46,7 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
           </Button>
         </CardFooter>
       </div>
-      <div>{children}</div>
+      <div className="md:col-span-2">{children}</div>
     </Card>
   )
 }
@@ -60,7 +60,7 @@ export type DashboardCardContentProps = {
 
 export const DashboardCardContent: React.FC<DashboardCardContentProps> = ({ loading, title, children, footer }) => {
   return (
-    <Card className="min-h-[200px] p-4 flex flex-col space-y-2 justify-between bg-white overflow-hidden">
+    <Card className="min-h-[200px] p-4 flex flex-col space-y-2 justify-between bg-white">
       <CardHeader className="p-0">
         <CardTitle className="text-foreground/70 text-base font-normal">
           <Skeleton className="w-full" loading={loading}>

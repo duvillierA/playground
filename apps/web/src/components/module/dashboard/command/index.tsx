@@ -8,7 +8,7 @@ import React, { useState } from 'react'
 import { Kbd } from '@/components/ui/kbd'
 import { APPLICATION_CATEGORIES, APPLICATIONS } from '@/lib/constants'
 
-const tags = Array.from({ length: 2 }).map((_, i) => `How many times user ${i} has made Y`)
+const tags = [...Array(2).keys()].map((i) => `How many times user ${i} has made Y`)
 
 export const DashboardCommand: React.FC = () => {
   const t = useTranslations('Common')
@@ -22,7 +22,7 @@ export const DashboardCommand: React.FC = () => {
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px] p-0 bg-gray-100">
-        <>
+        <div>
           <div className="p-1 m-0">
             <Input placeholder="Find info, Ask questions or run queries" />
           </div>
@@ -66,7 +66,7 @@ export const DashboardCommand: React.FC = () => {
               Close
             </Button>
           </div>
-        </>
+        </div>
       </DialogContent>
     </Dialog>
   )
