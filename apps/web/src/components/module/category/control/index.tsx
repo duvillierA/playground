@@ -26,11 +26,11 @@ export const CategoryControl: React.FC<CategoryControlProps> = ({ value, onValue
   return (
     <div className={cn('flex justify-between items-center', className)}>
       <div className="flex flex-nowrap space-x-1">
-        <Button size="xs" variant={value === 'all' ? 'default' : 'outline'} onClick={() => onValueChange('all')}>
+        <Button size="xs" className={value === 'all' ? 'cursor-default' : ''} variant={value === 'all' ? 'default' : 'outline'} onClick={() => onValueChange('all')}>
           {t('all')}
         </Button>
         {CATEGORIES.map((c) => (
-          <Button size="xs" variant={value === c ? `application-${c}` : 'outline'} key={c} onClick={() => onValueChange(c)} className="cursor-pointer">
+          <Button size="xs" className={value === c ? 'cursor-default' : ''} variant={value === c ? `application-${c}` : 'outline'} key={c} onClick={() => onValueChange(c)}>
             <CategoryIcon category={c} className="size-3 mr-1" />
             {c}
           </Button>

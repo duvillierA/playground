@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Dialog, DialogContent, DialogTrigger } from '@repo/ui'
+import { Button, Dialog, DialogContent } from '@repo/ui'
 import React, { useState } from 'react'
 
 import { DashboardCommandButton } from '@/components/module/dashboard/command/button'
@@ -15,9 +15,7 @@ export const DashboardDialog: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger>
-        <DashboardCommandButton onCmd={() => setIsOpen(!isOpen)} />
-      </DialogTrigger>
+      <DashboardCommandButton onCmd={() => setIsOpen(!isOpen)} />
       <DialogContent className="sm:max-w-[680px] p-0 bg-gray-100">
         <div>
           <DashboardDialogContent tags={tags} applications={APPLICATIONS} />
