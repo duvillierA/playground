@@ -13,10 +13,8 @@ export type ApplicationRequest = {
 
 export const revalidate = 600
 export async function GET(): Promise<NextResponse> {
-  const applications: ApplicationDocument[] = [...APPLICATIONS]
-
   const response = {
-    applications
+    applications: APPLICATIONS
   } satisfies ApplicationRequest['response']
 
   return NextResponse.json(response)

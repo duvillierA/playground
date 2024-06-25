@@ -1,7 +1,7 @@
-import { Home } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
+import Icon from '@/components/common/icon'
 import NavMenu from '@/components/layout/nav/Menu'
 import NavMenuItem from '@/components/layout/nav/Menu/Item'
 import { PageLink } from '@/components/page/link'
@@ -22,7 +22,7 @@ export const Nav: React.FC<NavProps> = ({ title, className }) => {
         <div className="flex items-center space-x-6">
           <PageLink page={indexPageUrl}>
             <span className="flex items-center space-x-2">
-              <Home className="size-4" />
+              <Icon name="home" className="size-4" />
               <span className="hidden sm:inline-block">{title ?? 'Playground'}</span>
             </span>
           </PageLink>

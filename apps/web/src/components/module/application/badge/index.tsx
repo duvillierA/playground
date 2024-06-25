@@ -7,7 +7,7 @@ export const ApplicationCategoryBadge: React.FC<{
   category: ApplicationDocument['category']
 }> = ({ category }) => {
   return (
-    <Badge variant={`application-${category}`} className="capitalize font-normal">
+    <Badge variant={`application-${category}`} className="capitalize">
       {category}
     </Badge>
   )

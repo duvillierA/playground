@@ -1,3 +1,5 @@
+export const CATEGORIES = ['data', 'security', 'store', 'settings', 'tools'] as const
+
 const APPLICATION_DATA = [
   {
     category: 'data',
@@ -79,4 +81,3 @@ export const APPLICATION_SETTINGS = [
 
 export const APPLICATIONS = [...APPLICATION_DATA, ...APPLICATION_SECURITY, ...APPLICATION_STORE, ...APPLICATION_TOOLS, ...APPLICATION_SETTINGS]
 export const APPLICATION_CODES = [...APPLICATIONS].map(({ code }) => code)
-export const APPLICATION_CATEGORIES = ['data', 'security', 'store', 'tools', 'settings'] as const

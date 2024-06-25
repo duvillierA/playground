@@ -1,6 +1,6 @@
-import { Calendar } from 'lucide-react'
 import React from 'react'
 
+import Icon from '@/components/common/icon'
 import { IntlDateTime } from '@/components/common/intl/date/dateTime'
 import { cn } from '@/lib/styles'
 
@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
     <footer className={cn('py-4 border-t h-14 flex items-center', className)}>
       <div className="container mx-auto">
         <p className="flex items-center">
-          <Calendar className="size-4 text-muted-foreground mr-1" />
+          <Icon name="calendar" className="size-4 text-muted-foreground mr-1" />
           <small className="text-muted-foreground">
             <IntlDateTime
               value={now}

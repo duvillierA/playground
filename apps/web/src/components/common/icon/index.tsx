@@ -1,17 +1,25 @@
+// find all lucide icons at https://lucide.dev/
+// github https://github.com/lucide-icons/lucide
 import type { LucideProps } from 'lucide-react'
-import dynamicIconImports from 'lucide-react/dynamicIconImports'
 import dynamic from 'next/dynamic'
+import { memo } from 'react'
 
-export type IconName = keyof typeof dynamicIconImports
+import type { IconName } from './dynamicIconImports'
 
-export interface IconProps extends LucideProps {
+export type { IconName } from './dynamicIconImports'
+
+export interface IconProps extends Omit<LucideProps, 'ref'> {
   name: IconName
 }
 
-const Icon = ({ name, ...props }: IconProps) => {
-  const LucideIcon = dynamic(dynamicIconImports[name])
+const IconLazy = dynamic(
+  // Fast refresh doesn't play nice with dynamic imports
+  // This prevent slowdowns in development mode
+  process.env.NODE_ENV === 'production' ? () => import('./iconProd') : () => import('./iconDev')
+)
 
-  return <LucideIcon {...props} />
-}
+const Icon = memo((props: IconProps) => <IconLazy {...props} />)
+
+Icon.displayName = 'Icon'
 
 export default Icon

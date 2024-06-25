@@ -1,10 +1,10 @@
 'use client'
 
 import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Skeleton } from '@repo/ui'
-import { ChevronRight, Info } from 'lucide-react'
 import { useFormatter, useTranslations } from 'next-intl'
 
 import type { LogDocument } from '@/app/api/logs/route'
+import Icon from '@/components/common/icon'
 
 import { ApplicationCategoryBadge } from '../../application/badge'
 
@@ -38,11 +38,11 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
         </CardHeader>
         <CardFooter className="md:block items-center text-muted-foreground p-0">
           <Skeleton className="w-full inline-flex items-center text-xs" loading={loading}>
-            <Info className="size-4 mr-1" /> {t('Log.update', { count: data.count })}
+            <Icon name="info" className="size-4 mr-1" /> {t('Log.update', { count: data.count })}
           </Skeleton>
           <Button size="sm" variant="secondary" className="w-full">
             {t('Common.viewMore')}
-            <ChevronRight size={18} />
+            <Icon name="chevron-right" size={18} />
           </Button>
         </CardFooter>
       </div>

@@ -26,8 +26,8 @@ export const ApplicationMenu: React.FC<ApplicationMenuProps> = ({ applications, 
       {Object.entries(applicationsGroupByCategory).map(([category, _applications]) => {
         return (
           <div key={category}>
-            <div className="text-muted-foreground capitalize text-sm mb-2 px-2">{category}</div>
-            <ul className="space-y-2">
+            <div className="text-muted-foreground capitalize text-sm mb-2 px-2 animate-in fade-in duration-300">{category}</div>
+            <ul className="animate-in fade-in duration-700">
               {_applications.map((application, i) => {
                 return <ApplicationMenuItem key={application.code} application={application} onSelect={() => onSelect(application)} kbd="test" className="px-2" tabIndex={i} />
               })}
