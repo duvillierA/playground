@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/footer'
 import { Main } from '@/components/layout/main'
 import { Nav } from '@/components/layout/nav'
 
-onst PlaygroundLayout: React.FC<PropsWithChildren<PageProps>> = async ({ children }) => {
+const PlaygroundLayout: React.FC<PropsWithChildren<PageProps>> = async ({ children }) => {
   return (
     <>
       <Nav />

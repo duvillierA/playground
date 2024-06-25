@@ -2,21 +2,22 @@
 
 import type { BadgeProps } from '@repo/ui'
 import { badgeVariants } from '@repo/ui'
-import type { PropsWithChildren } from 'react'
 
 import type { IconName } from '@/components/common/icon'
 import Icon from '@/components/common/icon'
+import { useHotKey } from '@/hooks/hotKeys'
 import { cn } from '@/lib/styles'
 
 export const comboKeys = ['ctrl', 'meta', 'shift', 'alt'] as const
 
-export type KbdProps = PropsWithChildren<{
+export type KbdProps = {
   value: string
   description?: string
   className?: string
   variant?: Extract<BadgeProps['variant'], 'outline' | 'secondary'>
   combo?: (typeof comboKeys)[number][]
-}>
+  onCmd?: (arg: void) => void
+}
 
 function getComboIcon(combo: (typeof comboKeys)[number]): IconName {
   switch (combo) {
@@ -33,7 +34,9 @@ function getComboIcon(combo: (typeof comboKeys)[number]): IconName {
   }
 }
 
-export const Kbd = ({ value, description, combo, className, variant = 'outline' }: KbdProps) => {
+const noop = () => {}
+
+export const Kbd: React.FC<KbdProps> = ({ value, description, combo, className, variant = 'outline', onCmd }) => {
   const KbdClassName = cn(
     badgeVariants({
       variant,
@@ -45,19 +48,18 @@ export const Kbd = ({ value, description, combo, className, variant = 'outline' 
     }
   )
 
-  const component = (
+  useHotKey({
+    key: value,
+    combo,
+    onKeyDown: onCmd ?? noop,
+    disabled: !onCmd
+  })
+
+  return (
     <kbd className={cn(KbdClassName, 'space-x-0.5', className)}>
       {!!combo?.length && combo.map((c) => <Icon name={getComboIcon(c)} strokeWidth={3} size={10} key={c} />)}
       <span>{value}</span>
+      {description && <span>{description}</span>}
     </kbd>
-  )
-  if (!description) {
-    return component
-  }
-  return (
-    <span className="inline-flex space-x-1 items-center">
-      {component}
-      {description && <small className="text-muted-foreground text-sm">{description}</small>}
-    </span>
   )
 }

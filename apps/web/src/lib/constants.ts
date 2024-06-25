@@ -50,10 +50,6 @@ export const APPLICATION_STORE = [
   {
     category: 'store',
     code: 'splunk'
-  },
-  {
-    category: 'store',
-    code: 'policies'
   }
 ] as const
 
@@ -72,10 +68,6 @@ export const APPLICATION_SETTINGS = [
   {
     category: 'settings',
     code: 'foo'
-  },
-  {
-    category: 'settings',
-    code: 'bar'
   }
 ] as const
 
