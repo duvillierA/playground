@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
 
 import { Header } from '@/components/layout/header'
+import { Section } from '@/components/layout/section'
 import { intlPageUrl } from '@/config/sitemap'
 
 export async function generateMetadata(): Promise<Metadata> {
