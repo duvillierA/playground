@@ -25,7 +25,7 @@ export const DashboardDialogContent: React.FC<{
       {isCmdMode ? (
         <div className="pt-1 space-y-2">commands list</div>
       ) : (
-        <div className="pt-1 space-y-2">
+        <div className="pt-2 space-y-3">
           <div className="overflow-hidden relative px-2">
             <div className="flex flex-nowrap space-x-2 overflow-auto w-full">
               {tags.map((tag) => {

@@ -28,10 +28,10 @@ export const ApplicationMenu: React.FC<ApplicationMenuProps> = ({ applications, 
   )
   return (
     <div className={cn('sm:h-[460px] overflow-y-auto', className)} role="listbox">
-      <div className="space-y-4 py-1">
+      <div className="divide-y">
         {Object.entries(applicationsGroupByCategory).map(([category, list]) => {
           return (
-            <div key={category}>
+            <div key={category} className="py-4 first:pt-0 last:pb-0">
               <div className="text-muted-foreground capitalize text-sm mb-2 px-2 animate-in fade-in duration-300">{category}</div>
               <ul className="animate-in fade-in duration-700" role="group">
                 {list.map((application, i) => {
