@@ -18,7 +18,7 @@ export const DashboardDialogContent: React.FC<{
     <div>
       <div className="p-1 m-0">
         <div className="relative z-10">
-          <Input readOnly a placeholder="Find info, Ask questions or run queries" className="focus:outline-none focus-within:outline-none" />
+          <Input readOnly placeholder="Find info, Ask questions or run queries" className="focus:outline-none focus-within:outline-none" />
           <Kbd value="/" combo={['shift']} description="for commands" variant="secondary" className="absolute top-2 right-2 z-20" onCmd={() => setIsCmdMode(!isCmdMode)} />
         </div>
       </div>
