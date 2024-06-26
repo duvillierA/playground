@@ -1,7 +1,7 @@
-import type { ApplicationDocument } from '@/app/api/applications/route'
+import type { CategoriesDocument } from '@/app/api/categories/route'
 import Icon, { type IconName, type IconProps } from '@/components/common/icon'
 
-export const getCategoryIcon = (category: ApplicationDocument['category']): IconName => {
+export const getCategoryIcon = (category: CategoriesDocument): IconName => {
   switch (category) {
     case 'data':
       return 'database'
@@ -18,7 +18,7 @@ export const getCategoryIcon = (category: ApplicationDocument['category']): Icon
   }
 }
 
-type CategoryIconProps = Pick<ApplicationDocument, 'category'> & Omit<IconProps, 'name'>
+type CategoryIconProps = { category: CategoriesDocument } & Omit<IconProps, 'name'>
 
 export const CategoryIcon: React.FC<CategoryIconProps> = ({ category, ...props }) => {
   return <Icon {...props} name={getCategoryIcon(category)} />

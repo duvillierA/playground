@@ -2,22 +2,23 @@ import { Button } from '@repo/ui'
 import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 
+import type { CategoriesDocument } from '@/app/api/categories/route'
+import { useStore } from '@/components/common/store'
 import { Kbd } from '@/components/ui/kbd'
-import { CATEGORIES } from '@/lib/constants'
 import { cn } from '@/lib/styles'
 
 import { CategoryIcon } from '../icon'
 
-type CategoryControlValue = (typeof CATEGORIES)[number] | 'all'
+type CategoryControlValue = CategoriesDocument | 'all'
 export type CategoryControlProps = {
   className?: string
   value?: CategoryControlValue
   onValueChange: (arg: CategoryControlValue) => void
 }
 
-const categoryList = ['all', ...CATEGORIES] as const
-
 export const CategoryControl: React.FC<CategoryControlProps> = ({ value, onValueChange, className }) => {
+  const { categories } = useStore()
+  const categoryList = ['all', ...categories] as const
   const t = useTranslations('Common')
   const nextCategory = useMemo(() => {
     const currentIndex = categoryList.findIndex((c) => c === value)
@@ -29,7 +30,7 @@ export const CategoryControl: React.FC<CategoryControlProps> = ({ value, onValue
         <Button size="xs" className={value === 'all' ? 'cursor-default' : ''} variant={value === 'all' ? 'default' : 'outline'} onClick={() => onValueChange('all')}>
           {t('all')}
         </Button>
-        {CATEGORIES.map((c) => (
+        {categories.map((c) => (
           <Button size="xs" className={value === c ? 'cursor-default' : ''} variant={value === c ? `application-${c}` : 'outline'} key={c} onClick={() => onValueChange(c)}>
             <CategoryIcon category={c} className="size-3 mr-1" />
             {c}

@@ -8,6 +8,6 @@ export const useStore = () => {
   if (context === undefined) {
     throw new Error('useStore must be used within a StoreProvider')
   }
-
-  return [context.state, context.dispatch]
+  return context.state
+  // return [context.state, context.dispatch]
 }

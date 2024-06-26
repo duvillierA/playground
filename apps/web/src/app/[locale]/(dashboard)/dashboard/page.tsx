@@ -50,7 +50,7 @@ const DashboardPage: React.FC = async () => {
     <>
       <Section>
         <SectionTitle title={translation.recent} />
-        <DashboardCarousel>
+        <DashboardCarousel showNavigation={data.recent.length > 1}>
           {data.recent.map((d) => (
             <DashboardCarouselItem key={d.type}>{getDashboardCard(d)}</DashboardCarouselItem>
           ))}
@@ -58,7 +58,7 @@ const DashboardPage: React.FC = async () => {
       </Section>
       <Section>
         <SectionTitle title={translation.saved} />
-        <DashboardCarousel>
+        <DashboardCarousel showNavigation={data.saved.length > 1}>
           {data.saved.map((d) => (
             <DashboardCarouselItem key={d.type}>{getDashboardCard(d)}</DashboardCarouselItem>
           ))}

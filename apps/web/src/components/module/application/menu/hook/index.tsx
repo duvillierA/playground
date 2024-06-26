@@ -12,10 +12,10 @@ export const useApplicationMenu = ({
   applications = [],
   onSelect
 }: ApplicationMenuHookProps): {
-  active: ApplicationDocument
+  active?: ApplicationDocument | void
 } => {
-  const [active, setActive] = useState<ApplicationDocument>(applications[0])
-  const activeApplicationIndex = useMemo(() => applications.findIndex((a) => a.code === active?.code), [applications, active.code])
+  const [active, setActive] = useState<ApplicationDocument | void>(applications[0])
+  const activeApplicationIndex = useMemo(() => applications.findIndex((a) => a.code === active?.code), [applications, active?.code])
   const onArrowUp = useCallback(() => {
     setActive(applications[activeApplicationIndex - 1] || applications[0])
   }, [applications, activeApplicationIndex, setActive])
@@ -26,7 +26,9 @@ export const useApplicationMenu = ({
     }
   }, [applications, activeApplicationIndex, setActive])
   const onEnter = useCallback(() => {
-    onSelect(active)
+    if (active) {
+      onSelect(active)
+    }
   }, [active, onSelect])
   useEffect(() => {
     setActive(applications[0])

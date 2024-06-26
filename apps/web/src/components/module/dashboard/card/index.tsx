@@ -2,6 +2,7 @@
 
 import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Skeleton } from '@repo/ui'
 import { useFormatter, useTranslations } from 'next-intl'
+import { toast } from 'sonner'
 
 import type { LogDocument } from '@/app/api/logs/route'
 import Icon from '@/components/common/icon'
@@ -36,11 +37,22 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
             </Skeleton>
           </CardDescription>
         </CardHeader>
-        <CardFooter className="md:block items-center text-muted-foreground p-0">
+        <CardFooter className="block items-center text-muted-foreground p-0">
           <Skeleton className="w-full inline-flex items-center text-xs" loading={loading}>
             <Icon name="info" className="size-4 mr-1" /> {t('Log.update', { count: data.count })}
           </Skeleton>
-          <Button size="sm" variant="secondary" className="w-full">
+          <Button
+            size="sm"
+            variant="default"
+            className="w-full"
+            onClick={() =>
+              toast(data.type, {
+                description: <ApplicationCategoryBadge category={data.category} />,
+                duration: 1300,
+                id: data.type
+              })
+            }
+          >
             {t('Common.viewMore')}
             <Icon name="chevron-right" size={18} />
           </Button>

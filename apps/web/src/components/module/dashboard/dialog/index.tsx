@@ -3,9 +3,9 @@
 import { Button, Dialog, DialogContent } from '@repo/ui'
 import React, { useState } from 'react'
 
+import { useStore } from '@/components/common/store'
 import { DashboardCommandButton } from '@/components/module/dashboard/command/button'
 import { Kbd } from '@/components/ui/kbd'
-import { APPLICATIONS } from '@/lib/constants'
 
 import { DashboardDialogContent } from './content'
 
@@ -13,12 +13,13 @@ const tags = [...Array(2).keys()].map((i) => `How many times user ${i} has made 
 
 export const DashboardDialog: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { applications, commands } = useStore()
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DashboardCommandButton onCmd={() => setIsOpen(!isOpen)} />
       <DialogContent className="sm:max-w-[680px] p-0 bg-gray-100">
         <div>
-          <DashboardDialogContent tags={tags} applications={APPLICATIONS} />
+          <DashboardDialogContent tags={tags} applications={applications} commands={commands} />
           <div className="flex justify-between items-center p-2 bg-white">
             <div className="flex items-center space-x-2">
               <div className="space-x-1 flex items-center">

@@ -30,6 +30,9 @@
     "updatedRelative": "Updated {time}",
     "viewMore": "View more"
   },
+  "Command": {
+    "title": "Find info, ask questions or run queries"
+  },
   "DashboardPage": {
     "title": "Search for anything",
     "meta": {

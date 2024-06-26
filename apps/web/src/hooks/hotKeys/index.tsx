@@ -21,7 +21,6 @@ const getEventCombo = (e: KeyboardEvent, combo: keyof typeof mappedCombo) => {
 export const useHotKey = ({ key, onKeyDown, combo = ['meta'], disabled }: HookHotKeyProps) => {
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      console.info('useHotKey#keydown: ', key, e)
       const comboKeyPressed = combo.reduce((acc, curr) => {
         return acc || getEventCombo(e, curr)
       }, false)

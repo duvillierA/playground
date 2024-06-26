@@ -1,4 +1,6 @@
 import type { ApplicationRequest } from '@/app/api/applications/route'
+import type { CategoriesRequest } from '@/app/api/categories'
+import type { CommandsRequest } from '@/app/api/commands/route'
 import type { LogRequest } from '@/app/api/logs/route'
 import { config } from '@/config'
 
@@ -7,15 +9,25 @@ const apiRoute = {
     pathname: '/api/logs',
     method: 'GET'
   },
+  getCategories: {
+    pathname: '/api/categories',
+    method: 'GET'
+  },
   getApplications: {
     pathname: '/api/applications',
+    method: 'GET'
+  },
+  getCommands: {
+    pathname: '/api/commands',
     method: 'GET'
   }
 } satisfies Record<string, { pathname: string; method: 'GET' | 'POST' }>
 
 export type ApiRequest = {
+  getCategories: CategoriesRequest
   getLogs: LogRequest
   getApplications: ApplicationRequest
+  getCommands: CommandsRequest
 }
 
 const fetcher = (pathname: string, method: 'GET' | 'POST', body?: Record<string, unknown>, opts?: RequestInit) => {
