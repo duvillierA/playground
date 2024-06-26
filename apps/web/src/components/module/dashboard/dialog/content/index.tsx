@@ -38,12 +38,8 @@ export const DashboardDialogContent: React.FC<{
           value={searchValue}
           onChangeValue={(v) => {
             setSearchValue(v)
-            if (v.startsWith('/')) {
-              setIsCmdMode(true)
-              setCategory('all')
-            } else if (isCmdMode) {
-              setIsCmdMode(false)
-            }
+            setCategory('all')
+            setIsCmdMode(v.startsWith('/'))
           }}
         />
       </div>
@@ -73,7 +69,14 @@ export const DashboardDialogContent: React.FC<{
                 })}
               </div>
             </div>
-            <CategoryControl value={category} onValueChange={setCategory} className="px-2" />
+            <CategoryControl
+              value={category}
+              onValueChange={(c) => {
+                setSearchValue('')
+                setCategory(c)
+              }}
+              className="px-2"
+            />
             <ApplicationMenu
               applications={applicationsMenuList}
               onSelect={(app) =>

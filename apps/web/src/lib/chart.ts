@@ -2,7 +2,7 @@ import { addDays, format } from 'date-fns'
 
 import { random } from '@/lib/math'
 
-const luminosity = (count: number, min: number, max: number) => ((count - min) / (max - min)) * (40 - 90) + 90
+const luminosity = (count: number, min: number, max: number) => ((count - min) / (max - min)) * (35 - 90) + 90
 
 const min = 5
 const max = 100
