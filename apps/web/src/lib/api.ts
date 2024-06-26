@@ -1,5 +1,5 @@
 import type { ApplicationRequest } from '@/app/api/applications/route'
-import type { CategoriesRequest } from '@/app/api/categories'
+import type { CategoriesRequest } from '@/app/api/categories/route'
 import type { CommandsRequest } from '@/app/api/commands/route'
 import type { LogRequest } from '@/app/api/logs/route'
 import { config } from '@/config'

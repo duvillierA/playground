@@ -6,8 +6,7 @@ import { toast } from 'sonner'
 
 import type { LogDocument } from '@/app/api/logs/route'
 import Icon from '@/components/common/icon'
-
-import { ApplicationCategoryBadge } from '../../application/badge'
+import { ApplicationCategoryBadge } from '@/components/module/application/badge'
 
 export type DashboardCardProps = {
   loading?: boolean

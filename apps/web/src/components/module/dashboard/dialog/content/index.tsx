@@ -9,8 +9,7 @@ import { ApplicationCategoryBadge } from '@/components/module/application/badge'
 import { ApplicationMenu } from '@/components/module/application/menu'
 import { CategoryControl, type CategoryControlProps } from '@/components/module/category/control'
 import { CommandMenu } from '@/components/module/command/menu'
-
-import { DashboardDialogInput } from '../input'
+import { DashboardDialogInput } from '@/components/module/dashboard/dialog/input'
 
 export const DashboardDialogContent: React.FC<{
   tags: string[]
@@ -42,7 +41,7 @@ export const DashboardDialogContent: React.FC<{
             if (v.startsWith('/')) {
               setIsCmdMode(true)
               setCategory('all')
-            } else if(isCmdMode) {
+            } else if (isCmdMode) {
               setIsCmdMode(false)
             }
           }}
