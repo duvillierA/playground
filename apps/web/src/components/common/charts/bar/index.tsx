@@ -29,6 +29,7 @@ export const ChartsBar: React.FC<ChartsBarProps> = ({ ...props }) => {
       padding={0.3}
       valueScale={{ type: 'linear' }}
       indexScale={{ type: 'band', round: true }}
+      minValue={'auto'}
       colors={({ id, data }) => (data as any)[`${id}Color`]}
       borderColor={{
         from: 'color',

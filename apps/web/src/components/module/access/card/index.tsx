@@ -4,6 +4,7 @@ import React from 'react'
 
 import { ChartsTimeRange } from '@/components/common/charts/calendar'
 import { DashboardCard, DashboardCardContent, type DashboardCardProps } from '@/components/module/dashboard/card'
+import { random } from '@/lib/math'
 
 interface AccessCardProps {
   data: DashboardCardProps['data']
@@ -14,7 +15,7 @@ const fromDays = 90
 const now = new Date()
 const chartData = [...Array(fromDays).keys()].map((i) => ({
   day: format(subDays(now, i), 'yyyy-MM-dd'),
-  value: Math.floor(Math.random() * (100 + 1))
+  value: random(0, 200)
 }))
 
 export const AccessCard: React.FC<AccessCardProps> = ({ data, loading }) => {

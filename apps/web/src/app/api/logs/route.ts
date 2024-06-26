@@ -1,6 +1,7 @@
 import { sub } from 'date-fns'
 import { NextResponse } from 'next/server'
 import type { ApplicationDocument } from '@/app/api/applications/route'
+import { random } from '@/lib/math'
 
 export interface LogDocumentBase {
   type: ApplicationDocument['code']
@@ -26,7 +27,7 @@ export async function GET (): Promise<NextResponse> {
   const data: LogDocument[] = [{
     'type': 'logs',
     'category': 'security',
-    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
+    'count': random(30, 100),
     'updatedAt': sub(new Date(), {
       days: 3
     }).toISOString(),
@@ -36,7 +37,7 @@ export async function GET (): Promise<NextResponse> {
   }, {
     'type': 'access',
     'category': 'security',
-    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
+    'count': random(30, 100),
     'updatedAt': sub(new Date(), {
       days: 1
     }).toISOString(),
@@ -47,7 +48,7 @@ export async function GET (): Promise<NextResponse> {
   {
     'type': 'observability',
     'category': 'data',
-    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
+    'count': random(30, 100),
     'updatedAt': sub(new Date(), {
       days: 2
     }).toISOString(),
@@ -58,7 +59,7 @@ export async function GET (): Promise<NextResponse> {
   {
     'type': 'sidecar',
     'category': 'tools',
-    'count': Math.floor(Math.random() * (100 - 30 + 1) + 30),
+    'count': random(30, 100),
     'updatedAt': sub(new Date(), {
       days: 3
     }).toISOString(),
