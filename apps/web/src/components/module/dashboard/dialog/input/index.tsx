@@ -21,7 +21,8 @@ export const DashboardDialogInput: React.FC<{
         }}
       />
       <Kbd
-        value="/"
+        value="Slash"
+        text="/"
         combo={['shift']}
         description="for commands"
         variant="secondary"

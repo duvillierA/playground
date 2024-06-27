@@ -8,8 +8,8 @@ import { cn } from '@/lib/styles'
 type ApplicationMenuItemProps = {
   application: ApplicationDocument
   kbd?: {
-    combo: KbdProps['combo']
-    value: KbdProps['value']
+    combo: NonNullable<KbdProps['combo']>
+    value: NonNullable<KbdProps['value']>
   }
   onSelect: () => void
   tabIndex?: number

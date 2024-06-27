@@ -23,9 +23,8 @@ const getEventCombo = (e: KeyboardEvent, combo: keyof typeof mappedCombo) => {
 export const useHotKey = ({ key, onKeyDown, combo = ['meta'], disabled }: HookHotKeyProps) => {
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      console.log(e, key)
       const comboKeyPressed = combo.every((c) => getEventCombo(e, c))
-      const isKey = e.code === keyCodeMap[key]
+      const isKey = [e.code, e.key].includes(keyCodeMap[key])
       if (isKey && comboKeyPressed) {
         e.preventDefault()
         onKeyDown()

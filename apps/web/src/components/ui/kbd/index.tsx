@@ -10,15 +10,26 @@ import { cn } from '@/lib/styles'
 
 export const comboKeys = ['ctrl', 'meta', 'shift', 'alt'] as const
 
-export type KbdProps = {
-  value: HookHotKeyProps['key']
-  text?: string
+type KbdBase = {
   description?: string
   className?: string
   variant?: Extract<BadgeProps['variant'], 'outline' | 'secondary'>
   combo?: (typeof comboKeys)[number][]
-  onCmd?: (arg: void) => void
 }
+
+type KbdOption =
+  | {
+      value: HookHotKeyProps['key']
+      text?: React.ReactNode
+      onCmd: (arg: void) => void
+    }
+  | {
+      value?: never
+      onCmd?: never
+      text: React.ReactNode
+    }
+
+export type KbdProps = KbdBase & KbdOption
 
 function getComboIcon(combo: (typeof comboKeys)[number]): IconName {
   switch (combo) {
@@ -50,7 +61,7 @@ export const Kbd: React.FC<KbdProps> = ({ value, text, description, combo, class
   )
 
   useHotKey({
-    key: value,
+    key: value || 'A',
     combo,
     onKeyDown: onCmd ?? noop,
     disabled: !onCmd

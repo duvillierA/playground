@@ -23,15 +23,15 @@ export const DashboardDialog: React.FC = () => {
           <div className="flex justify-between items-center p-2 bg-white">
             <div className="flex items-center space-x-2">
               <div className="space-x-1 flex items-center">
-                <Kbd text="esc" value="Escape" />
+                <Kbd text="esc" />
                 <span className="text-sm text-muted-foreground">Close</span>
               </div>
               <div className="space-x-1 flex items-center">
-                <Kbd text="upDown" value="ArrowUp" />
+                <Kbd text="upDown" />
                 <span className="text-sm text-muted-foreground">Navigate</span>
               </div>
               <div className="space-x-1 flex items-center">
-                <Kbd text="Enter" value="Enter" />
+                <Kbd text="Enter" />
                 <span className="text-sm text-muted-foreground">Open</span>
               </div>
             </div>

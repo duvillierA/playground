@@ -35,6 +35,8 @@ export const keyCodeMap = {
   '7': 'Digit7',
   '8': 'Digit8',
   '9': 'Digit9',
+  Slash: '/',
+  Dot: '.',
   Enter: 'Enter',
   Escape: 'Escape',
   Backspace: 'Backspace',

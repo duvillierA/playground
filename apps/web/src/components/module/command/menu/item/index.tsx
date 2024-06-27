@@ -1,21 +1,19 @@
 import React, { useEffect, useRef } from 'react'
 
 import type { CommandsDocument } from '@/app/api/commands/route'
-import { Kbd } from '@/components/ui/kbd'
 import { cn } from '@/lib/styles'
 
 import { CommandBadge } from '../../badge'
 
 type CommandMenuItemProps = {
   data: CommandsDocument
-  kbd?: string
   onSelect: () => void
   tabIndex?: number
   selected?: boolean
   className?: string
 }
 
-export const CommandMenuItem: React.FC<CommandMenuItemProps> = ({ data, kbd, onSelect, selected, tabIndex, className }) => {
+export const CommandMenuItem: React.FC<CommandMenuItemProps> = ({ data, onSelect, selected, tabIndex, className }) => {
   const menuItemRef = useRef<HTMLDivElement>(null)
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Enter') {
@@ -61,7 +59,6 @@ export const CommandMenuItem: React.FC<CommandMenuItemProps> = ({ data, kbd, onS
           <small className="not-italic text-muted-foreground">{data.description}</small>
         </span>
       </span>
-      {kbd && <Kbd value={data.code.substring(0, 1).toUpperCase()} combo={['alt', 'shift']} />}
     </div>
   )
 }
