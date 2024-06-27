@@ -20,7 +20,7 @@ export const DashboardDialog: React.FC = () => {
       <DialogContent className="sm:max-w-[680px] p-0 bg-gray-100">
         <div>
           <DashboardDialogContent tags={tags} applications={applications} commands={commands} />
-          <div className="flex justify-between items-center p-2 bg-white">
+          <div className="flex justify-between items-center p-2 bg-white rounded-b-sm border-t">
             <div className="flex items-center space-x-3">
               <div className="space-x-1 flex items-center">
                 <Kbd className="min-h-6 px-2.5" text="esc" />

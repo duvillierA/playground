@@ -33,16 +33,14 @@ export const DashboardDialogContent: React.FC<{
   }, [commands, searchValue])
   return (
     <div>
-      <div className="p-1 m-0">
-        <DashboardDialogInput
-          value={searchValue}
-          onChangeValue={(v) => {
-            setSearchValue(v)
-            setCategory('all')
-            setIsCmdMode(v.startsWith('/'))
-          }}
-        />
-      </div>
+      <DashboardDialogInput
+        value={searchValue}
+        onChangeValue={(v) => {
+          setSearchValue(v)
+          setCategory('all')
+          setIsCmdMode(v.startsWith('/'))
+        }}
+      />
       <div className="pt-2 space-y-3">
         {isCmdMode ? (
           <CommandMenu
