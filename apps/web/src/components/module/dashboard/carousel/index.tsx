@@ -31,5 +31,5 @@ export const DashboardCarousel: React.FC<
 }
 
 export const DashboardCarouselItem: React.FC<PropsWithChildren> = ({ children }) => {
-  return <CarouselItem className="md:basis-1/2 lg:basis-1/2">{children}</CarouselItem>
+  return <CarouselItem className="lg:basis-1/2">{children}</CarouselItem>
 }
