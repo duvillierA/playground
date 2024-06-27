@@ -12,7 +12,7 @@ async function getInitialState() {
 const DashboardLayout: React.FC<PropsWithChildren<PageProps>> = async ({ children }) => {
   const [applications, commands, categories] = await getInitialState()
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 overflow-x-hidden">
       <div className="bg-white">
         <DashboardHeader
           initialState={{

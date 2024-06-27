@@ -16,7 +16,7 @@ export const ApplicationMenu: React.FC<ApplicationMenuProps> = ({ applications, 
     applications
   })
   return (
-    <div className={cn('sm:h-[460px] overflow-y-auto', className)} role="listbox">
+    <div className={cn('h-[460px] overflow-y-auto', className)} role="listbox">
       <div className="divide-y">
         {Object.entries(list).map(([category, _applications]) => {
           return (

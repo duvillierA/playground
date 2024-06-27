@@ -22,13 +22,11 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({ loading, title, da
     <Card className="grid md:grid-cols-5 gap-4 md:gap-4 p-6">
       <div className="md:col-span-2 flex flex-col justify-between space-y-2">
         <CardHeader className="p-0">
-          <CardTitle className="text-foreground/70 font-medium text-xl">
+          <CardTitle className="flex flex-wrap text-foreground/70 font-medium text-xl items-center">
             <Skeleton loading={loading} className="mr-2">
               {title}
             </Skeleton>
-            <Skeleton>
-              <ApplicationCategoryBadge category={data.category} />
-            </Skeleton>
+            <ApplicationCategoryBadge category={data.category} />
           </CardTitle>
           <CardDescription>
             <Skeleton className="w-full" loading={loading}>

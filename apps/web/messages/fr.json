@@ -45,9 +45,9 @@
     }
   },
   "Log": {
-    "title": "Journaux",
+    "title": "Logs",
     "update": "{count, plural, =0 {aucun log} =1 {un log} other {# nouveaux logs}} depuis la mise à jour",
-    "relative": "Journaux / Date"
+    "relative": "Logs / Date"
   },
   "Query": {
     "title": "Requêtes",

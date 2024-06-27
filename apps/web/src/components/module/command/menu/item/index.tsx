@@ -49,15 +49,15 @@ export const CommandMenuItem: React.FC<CommandMenuItemProps> = ({ data, onSelect
     >
       <span className="space-x-2 inline-flex items-center">
         <CommandBadge command={data} />
-        <span className="flex items-baseline space-x-2">
+        <div className="flex items-center space-x-2 flex-wrap">
           <span
-            className={cn('text-foreground/80 group-hover:text-foreground group-focus:text-foreground leading-6 capitalize', {
+            className={cn('text-foreground/80 group-hover:text-foreground group-focus:text-foreground leading-6 capitalize whitespace-nowrap', {
               'text-foreground': selected
             })}
           >
             {data.name}
           </span>
-          <span className="space-x-1">
+          <span className="space-x-1 whitespace-nowrap">
             {data.tags.map((tag) => (
               <Badge
                 variant="outline"
@@ -72,7 +72,7 @@ export const CommandMenuItem: React.FC<CommandMenuItemProps> = ({ data, onSelect
             ))}
           </span>
           <small className="not-italic text-muted-foreground">{data.description}</small>
-        </span>
+        </div>
       </span>
     </div>
   )
