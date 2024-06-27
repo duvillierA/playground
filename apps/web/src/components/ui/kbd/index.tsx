@@ -13,7 +13,7 @@ export const comboKeys = ['ctrl', 'meta', 'shift', 'alt'] as const
 type KbdBase = {
   description?: string
   className?: string
-  variant?: Extract<BadgeProps['variant'], 'outline' | 'secondary'>
+  variant?: Extract<BadgeProps['variant'], 'outline' | 'secondary' | 'default'>
   combo?: (typeof comboKeys)[number][]
 }
 
@@ -48,6 +48,10 @@ function getComboIcon(combo: (typeof comboKeys)[number]): IconName {
 
 const noop = () => {}
 
+export const KbdIcon: React.FC<{ name: IconName }> = ({ name }) => {
+  return <Icon name={name} strokeWidth={3} size={10} />
+}
+
 export const Kbd: React.FC<KbdProps> = ({ value, text, description, combo, className, variant = 'outline', onCmd }) => {
   const KbdClassName = cn(
     badgeVariants({
@@ -69,7 +73,7 @@ export const Kbd: React.FC<KbdProps> = ({ value, text, description, combo, class
 
   return (
     <kbd className={cn(KbdClassName, 'space-x-0.5', className)}>
-      {!!combo?.length && combo.map((c) => <Icon name={getComboIcon(c)} strokeWidth={3} size={10} key={c} />)}
+      {!!combo?.length && combo.map((c) => <KbdIcon name={getComboIcon(c)} key={c} />)}
       <span>{text ?? value}</span>
       {description && <span>{description}</span>}
     </kbd>
