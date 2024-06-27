@@ -1,6 +1,7 @@
 'use client'
 
 import { Button, Dialog, DialogContent } from '@repo/ui'
+import { useTranslations } from 'next-intl'
 import React, { useState } from 'react'
 
 import { useStore } from '@/components/common/store'
@@ -12,6 +13,7 @@ import { DashboardDialogContent } from './content'
 const tags = [...Array(2).keys()].map((i) => `How many times user ${i} has made Y`)
 
 export const DashboardDialog: React.FC = () => {
+  const t = useTranslations('Common')
   const [isOpen, setIsOpen] = useState(false)
   const { applications, commands } = useStore()
   return (
@@ -24,19 +26,19 @@ export const DashboardDialog: React.FC = () => {
             <div className="flex items-center space-x-3">
               <div className="space-x-1 flex items-center">
                 <Kbd className="min-h-6 px-2.5" text="esc" />
-                <span className="text-sm text-muted-foreground">Close</span>
+                <span className="text-sm text-muted-foreground">{t('close')}</span>
               </div>
               <div className="space-x-1 flex items-center">
                 <Kbd className="min-h-6 px-2.5" text={<KbdIcon name="arrow-up-down" />} />
-                <span className="text-sm text-muted-foreground">Navigate</span>
+                <span className="text-sm text-muted-foreground">{t('navigate')}</span>
               </div>
               <div className="space-x-1 flex items-center">
                 <Kbd className="min-h-6 px-2.5" text={<KbdIcon name="corner-down-left" />} />
-                <span className="text-sm text-muted-foreground">Open</span>
+                <span className="text-sm text-muted-foreground">{t('open')}</span>
               </div>
             </div>
             <Button variant="secondary" onClick={() => setIsOpen(false)}>
-              Close
+              {t('close')}
             </Button>
           </div>
         </div>

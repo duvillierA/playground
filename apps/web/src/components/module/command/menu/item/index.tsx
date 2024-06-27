@@ -1,3 +1,4 @@
+import { Badge } from '@repo/ui'
 import React, { useEffect, useRef } from 'react'
 
 import type { CommandsDocument } from '@/app/api/commands/route'
@@ -55,6 +56,20 @@ export const CommandMenuItem: React.FC<CommandMenuItemProps> = ({ data, onSelect
             })}
           >
             {data.name}
+          </span>
+          <span className="space-x-1">
+            {data.tags.map((tag) => (
+              <Badge
+                variant="outline"
+                key={tag}
+                className={cn('border-none', {
+                  'bg-indigo-100 text-indigo-500 capitalize font-semibold': tag !== 'resource',
+                  'bg-teal-100 text-teal-600 capitalize font-semibold': tag === 'resource'
+                })}
+              >
+                {tag}
+              </Badge>
+            ))}
           </span>
           <small className="not-italic text-muted-foreground">{data.description}</small>
         </span>

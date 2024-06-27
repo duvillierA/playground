@@ -27,7 +27,7 @@ export const DashboardDialogInput: React.FC<{
         value="Slash"
         text="/"
         combo={['shift']}
-        description="for commands"
+        description={t('forCommands')}
         variant="secondary"
         onCmd={() => {
           onChangeValue(value.startsWith('/') ? '' : '/')

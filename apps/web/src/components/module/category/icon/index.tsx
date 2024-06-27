@@ -12,7 +12,7 @@ export const getCategoryIcon = (category: CategoriesDocument): IconName => {
     case 'store':
       return 'store'
     case 'tools':
-      return 'pen-tool'
+      return 'wrench'
     default:
       return 'circle-help'
   }

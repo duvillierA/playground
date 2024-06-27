@@ -12,12 +12,15 @@
   },
   "Common": {
     "all": "All",
+    "close": "Close",
     "language":  "{locale, select, en {English} fr {Français} other {Unknown}}",
     "menu": "Menu",
     "meta": {
       "title" :"Common page title",
       "description": "Common page description"
     },
+    "navigate": "Navigate",
+    "open": "Open",
     "recent": "Recent",
     "saved": "Saved",
     "search": "Search",
@@ -31,7 +34,8 @@
     "viewMore": "View more"
   },
   "Command": {
-    "title": "Find info, ask questions or run queries"
+    "title": "Find info, ask questions or run queries",
+    "forCommands": "for commands"
   },
   "DashboardPage": {
     "title": "Search for anything",
