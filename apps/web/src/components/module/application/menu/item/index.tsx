@@ -2,12 +2,15 @@ import React, { useEffect, useRef } from 'react'
 
 import type { ApplicationDocument } from '@/app/api/applications/route'
 import { ApplicationBadge } from '@/components/module/application/badge'
-import { Kbd } from '@/components/ui/kbd'
+import { Kbd, type KbdProps } from '@/components/ui/kbd'
 import { cn } from '@/lib/styles'
 
 type ApplicationMenuItemProps = {
   application: ApplicationDocument
-  kbd?: string
+  kbd?: {
+    combo: KbdProps['combo']
+    value: KbdProps['value']
+  }
   onSelect: () => void
   tabIndex?: number
   selected?: boolean
@@ -60,7 +63,7 @@ export const ApplicationMenuItem: React.FC<ApplicationMenuItemProps> = ({ applic
           <small className="not-italic text-muted-foreground">Lorem ipsum dolor sit amet</small>
         </span>
       </span>
-      {kbd && <Kbd value={application.code.substring(0, 1).toUpperCase()} combo={['alt', 'shift']} />}
+      {kbd && <Kbd onCmd={onSelect} {...kbd} />}
     </div>
   )
 }

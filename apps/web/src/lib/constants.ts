@@ -68,6 +68,10 @@ export const APPLICATION_SETTINGS = [
   {
     category: 'settings',
     code: 'foo'
+  },
+  {
+    category: 'settings',
+    code: 'off'
   }
 ] as const
 

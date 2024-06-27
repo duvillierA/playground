@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 
 import type { ApplicationDocument } from '@/app/api/applications/route'
 import { NonIdealState } from '@/components/common/nonIdealState'
-import { useApplicationMenu } from '@/components/module/application/menu/hook'
+import { useApplicationMenu, useApplicationsKbd } from '@/components/module/application/menu/hook'
 import { ApplicationMenuItem } from '@/components/module/application/menu/item'
 import { cn } from '@/lib/styles'
 
@@ -27,6 +27,7 @@ export const ApplicationMenu: React.FC<ApplicationMenuProps> = ({ applications, 
       }, {} as MappedTypeApplication),
     [applications]
   )
+  const applicationKbd = useApplicationsKbd()
   return (
     <div className={cn('sm:h-[460px] overflow-y-auto', className)} role="listbox">
       <div className="divide-y">
@@ -36,7 +37,7 @@ export const ApplicationMenu: React.FC<ApplicationMenuProps> = ({ applications, 
               <div className="text-muted-foreground capitalize text-sm mb-2 px-2 animate-in fade-in duration-300">{category}</div>
               <ul className="animate-in fade-in duration-700" role="group">
                 {list.map((application, i) => {
-                  return <ApplicationMenuItem selected={active?.code === application.code} key={application.code} application={application} onSelect={() => onSelect(application)} kbd="test" className="px-2" tabIndex={i} />
+                  return <ApplicationMenuItem selected={active?.code === application.code} key={application.code} application={application} onSelect={() => onSelect(application)} kbd={applicationKbd[application.code]} className="px-2" tabIndex={i} />
                 })}
               </ul>
             </div>

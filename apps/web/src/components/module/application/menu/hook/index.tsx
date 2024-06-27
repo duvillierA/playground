@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import type { ApplicationDocument } from '@/app/api/applications/route'
+import { useStore } from '@/components/common/store'
+import type { KbdProps } from '@/components/ui/kbd'
 import { useHotKey } from '@/hooks/hotKeys'
 
 type ApplicationMenuHookProps = {
@@ -51,4 +53,50 @@ export const useApplicationMenu = ({
   return {
     active
   }
+}
+
+type ReducedObject = Record<
+  ApplicationDocument['code'],
+  {
+    value: KbdProps['value']
+    combo: KbdProps['combo']
+  }
+>
+export const useApplicationsKbd = (): ReducedObject => {
+  const { applications } = useStore()
+  const result = useMemo(() => {
+    const usedCombos = new Set<string>()
+    const additionalComboKeys = ['shift', 'ctrl'] satisfies KbdProps['combo']
+    return applications.reduce<ReducedObject>((acc, { code }) => {
+      let letter = ''
+      const combo: KbdProps['combo'] = ['alt']
+      for (let i = 0; i < code.length; i += 1) {
+        const char = code[i]
+        if (!usedCombos.has(`${combo[0]}+${char}`)) {
+          letter = char
+          usedCombos.add(`${combo[0]}+${char}`)
+          break
+        }
+      }
+
+      if (!letter) {
+        letter = code.charAt(0)
+        for (const comboKey of additionalComboKeys) {
+          const potentialCombo = `alt+${comboKey}+${letter}`
+          if (!usedCombos.has(potentialCombo)) {
+            combo.push(comboKey)
+            usedCombos.add(potentialCombo)
+            break
+          }
+        }
+      }
+
+      acc[code] = {
+        value: letter.toUpperCase() as KbdProps['value'],
+        combo
+      }
+      return acc
+    }, {} as ReducedObject)
+  }, [applications])
+  return result
 }

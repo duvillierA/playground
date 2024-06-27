@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 
+import { keyCodeMap } from './codes'
+
 const mappedCombo = {
   ctrl: 'ctrlKey',
   meta: 'metaKey',
@@ -8,7 +10,7 @@ const mappedCombo = {
 } as const
 
 export type HookHotKeyProps = {
-  key: string
+  key: keyof typeof keyCodeMap
   onKeyDown: () => void
   combo?: (keyof typeof mappedCombo)[]
   disabled?: boolean
@@ -21,10 +23,10 @@ const getEventCombo = (e: KeyboardEvent, combo: keyof typeof mappedCombo) => {
 export const useHotKey = ({ key, onKeyDown, combo = ['meta'], disabled }: HookHotKeyProps) => {
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      const comboKeyPressed = combo.reduce((acc, curr) => {
-        return acc || getEventCombo(e, curr)
-      }, false)
-      if (e.key === key && (combo.length ? comboKeyPressed : true)) {
+      console.log(e, key)
+      const comboKeyPressed = combo.every((c) => getEventCombo(e, c))
+      const isKey = e.code === keyCodeMap[key]
+      if (isKey && comboKeyPressed) {
         e.preventDefault()
         onKeyDown()
       }
