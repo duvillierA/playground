@@ -6,7 +6,7 @@ const animate = require('tailwindcss-animate')
  * @type {import('tailwindcss').Config}
  */
 const config = {
-  content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['../../packages/ui/src/components/**/*.{js,ts,jsx,tsx,mdx}'],
   darkMode: ['class'],
   theme: {
     container: {

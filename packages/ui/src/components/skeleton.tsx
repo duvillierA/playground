@@ -1,6 +1,5 @@
+import { cn } from '@repo/ui/lib/utils'
 import React from 'react'
-
-import { cn } from '@/lib/utils'
 
 type SkeletonProps = React.HTMLAttributes<HTMLDivElement> & {
   loading?: boolean

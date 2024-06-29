@@ -1,9 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
   "aliases": {
-    "components": "@/components",
-    "ui": "@/components",
-    "utils": "@/lib/utils"
+    "components": "./",
+    "ui": "./",
+    "utils": "@repo/ui/lib/utils"
   },
   "rsc": true,
   "style": "default",

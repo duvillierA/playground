@@ -2,32 +2,30 @@
   "name": "@repo/ui",
   "version": "0.0.0",
   "private": true,
+  "sideEffects": false,
   "scripts": {
-    "build": "rollup --config",
-    "clean": "rm -rf dist",
     "lint": "eslint  \"./src/**/*.{ts,tsx}\"",
+    "lint-fix": "eslint  \"./src/**/*.{ts,tsx}\" --fix",
     "generate": "shadcn-ui add $npm_config_component"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "./dist/index.js",
-    "./dist/index.css",
-    "./tailwind.config.js"
-  ],
+  "main": "./src/components/index.ts",
+  "types": "./src/components/index.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "import": "./src/components/index.ts",
+      "require": "./src/components/index.ts"
     },
     "./styles/base.css": {
-      "import": "./dist/index.css",
-      "require": "./dist/index.css"
+      "import": "./src/styles/base.css",
+      "require": "./src/styles/base.css"
     },
     "./config/tailwind.config.js": {
       "import": "./tailwind.config.js",
       "require": "./tailwind.config.js"
+    },
+    "./lib/utils": {
+      "import": "./src/lib/utils.ts",
+      "require": "./src/lib/utils.ts"
     }
   },
   "peerDependencies": {

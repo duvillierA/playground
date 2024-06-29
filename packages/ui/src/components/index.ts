@@ -1,5 +1,3 @@
-import '../styles/base.css'
-
 export * from './alert'
 export * from './badge'
 export * from './button'

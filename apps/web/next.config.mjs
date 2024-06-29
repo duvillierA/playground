@@ -18,7 +18,8 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['@repo/ui']
-  }
+  },
+  transpilePackages: ['@repo/ui']
 }
 
 export default withBundleAnalyzer(withNextIntl(nextConfig))

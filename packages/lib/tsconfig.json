@@ -1,0 +1,21 @@
+{
+  "extends": "@repo/tsconfig/base",
+  "allowJs": true,
+  "compilerOptions": {
+    "target": "es5",
+    "jsx": "preserve",
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "node_modules",
+    "package.json",
+    "dist"
+  ],
+  "include": [
+    "*.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    ".eslintrc.js"
+  ]
+}
