@@ -1,9 +1,9 @@
+import { cn } from '@repo/lib'
 import React, { useEffect, useRef } from 'react'
 
 import type { ApplicationDocument } from '@/app/api/applications/route'
 import { ApplicationBadge } from '@/components/module/application/badge'
 import { Kbd, type KbdProps } from '@/components/ui/kbd'
-import { cn } from '@/lib/styles'
 
 type ApplicationMenuItemProps = {
   application: ApplicationDocument

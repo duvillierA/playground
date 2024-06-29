@@ -1,8 +1,8 @@
+import { cn } from '@repo/lib'
 import { Badge } from '@repo/ui'
 import React, { useEffect, useRef } from 'react'
 
 import type { CommandsDocument } from '@/app/api/commands/route'
-import { cn } from '@/lib/styles'
 
 import { CommandBadge } from '../../badge'
 

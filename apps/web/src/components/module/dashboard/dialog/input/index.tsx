@@ -16,7 +16,7 @@ export const DashboardDialogInput: React.FC<{
       <Input
         autoFocus
         placeholder={t('title')}
-        className="h-12 focus:outline-none focus-within:outline-none outline-none border-0 focus:border-0 focus:ring-0 focus:ring-offset-0 focus:shadow-none focus:shadow-offset-0 rounded-none"
+        className="h-12 focus-visible:ring-0 focus-visible:ring-offset-0 outline-none border-0 focus:border-0 focus:ring-0 focus:ring-offset-0 focus:shadow-none focus:shadow-offset-0 rounded-none"
         value={value}
         onChange={(e) => {
           onChangeValue(e.target.value ?? '')

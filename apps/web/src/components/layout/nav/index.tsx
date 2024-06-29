@@ -1,3 +1,4 @@
+import { cn } from '@repo/lib'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
@@ -7,7 +8,6 @@ import NavMenuItem from '@/components/layout/nav/Menu/Item'
 import { PageLink } from '@/components/page/link'
 import { LocaleSwitcher } from '@/components/page/localeSwitcher'
 import { aboutPageUrl, indexPageUrl, intlPageUrl } from '@/config/sitemap'
-import { cn } from '@/lib/styles'
 
 type NavProps = {
   title?: string

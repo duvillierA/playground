@@ -3,7 +3,7 @@
   "aliases": {
     "components": "./",
     "ui": "./",
-    "utils": "@repo/ui/lib/utils"
+    "utils": "@repo/lib"
   },
   "rsc": true,
   "style": "default",

@@ -1,10 +1,10 @@
+import { cn } from '@repo/lib'
 import { useMemo } from 'react'
 
 import type { CommandsDocument } from '@/app/api/commands/route'
 import { NonIdealState } from '@/components/common/nonIdealState'
 import { useCommandMenu } from '@/components/module/command/menu/hook'
 import { CommandMenuItem } from '@/components/module/command/menu/item'
-import { cn } from '@/lib/styles'
 
 interface CommandMenuProps {
   data: CommandsDocument[]

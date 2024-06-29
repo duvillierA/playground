@@ -1,12 +1,12 @@
 'use client'
 
+import { cn } from '@repo/lib'
 import type { BadgeProps } from '@repo/ui'
 import { badgeVariants } from '@repo/ui'
 
 import type { IconName } from '@/components/common/icon'
 import Icon from '@/components/common/icon'
 import { type HookHotKeyProps, useHotKey } from '@/hooks/hotKeys'
-import { cn } from '@/lib/styles'
 
 export const comboKeys = ['ctrl', 'meta', 'shift', 'alt'] as const
 

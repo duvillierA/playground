@@ -1,10 +1,10 @@
+import { random } from '@repo/lib'
 import { format, subDays } from 'date-fns'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
 import { ChartsTimeRange } from '@/components/common/charts/calendar'
 import { DashboardCard, DashboardCardContent, type DashboardCardProps } from '@/components/module/dashboard/card'
-import { random } from '@/lib/math'
 
 interface AccessCardProps {
   data: DashboardCardProps['data']

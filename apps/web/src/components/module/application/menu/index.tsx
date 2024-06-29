@@ -1,8 +1,9 @@
+import { cn } from '@repo/lib'
+
 import type { ApplicationDocument } from '@/app/api/applications/route'
 import { NonIdealState } from '@/components/common/nonIdealState'
 import { useApplicationMenu } from '@/components/module/application/menu/hook'
 import { ApplicationMenuItem } from '@/components/module/application/menu/item'
-import { cn } from '@/lib/styles'
 
 interface ApplicationMenuProps {
   applications: ApplicationDocument[]

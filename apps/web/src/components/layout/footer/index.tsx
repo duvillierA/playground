@@ -1,8 +1,8 @@
+import { cn } from '@repo/lib'
 import React from 'react'
 
 import Icon from '@/components/common/icon'
 import { IntlDateTime } from '@/components/common/intl/date/dateTime'
-import { cn } from '@/lib/styles'
 
 type FooterProps = {
   className?: string

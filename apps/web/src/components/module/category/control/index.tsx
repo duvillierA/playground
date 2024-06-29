@@ -1,3 +1,4 @@
+import { cn } from '@repo/lib'
 import { Button } from '@repo/ui'
 import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
@@ -5,7 +6,6 @@ import { useMemo } from 'react'
 import type { CategoriesDocument } from '@/app/api/categories/route'
 import { useStore } from '@/components/common/store'
 import { Kbd } from '@/components/ui/kbd'
-import { cn } from '@/lib/styles'
 
 import { CategoryIcon } from '../icon'
 

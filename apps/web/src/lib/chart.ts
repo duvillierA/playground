@@ -1,6 +1,5 @@
+import { random } from '@repo/lib'
 import { addDays, format } from 'date-fns'
-
-import { random } from '@/lib/math'
 
 const luminosity = (count: number, min: number, max: number) => ((count - min) / (max - min)) * (35 - 90) + 90
 

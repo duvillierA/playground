@@ -1,7 +1,7 @@
 import { sub } from 'date-fns'
 import { NextResponse } from 'next/server'
 import type { ApplicationDocument } from '@/app/api/applications/route'
-import { random } from '@/lib/math'
+import { random } from '@repo/lib'
 
 export interface LogDocumentBase {
   type: ApplicationDocument['code']

@@ -1,7 +1,7 @@
 'use client'
 
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area'
-import { cn } from '@repo/ui/lib/utils'
+import { cn } from '@repo/lib'
 import * as React from 'react'
 
 const ScrollBar = React.forwardRef<React.ElementRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>, React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.ScrollAreaScrollbar>>(({ className, orientation = 'vertical', ...props }, ref) => (

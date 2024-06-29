@@ -1,4 +1,4 @@
-import { cn } from '@repo/ui/lib/utils'
+import { cn } from '@repo/lib'
 import React from 'react'
 
 type SkeletonProps = React.HTMLAttributes<HTMLDivElement> & {
