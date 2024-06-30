@@ -1,11 +1,10 @@
 'use client'
 
-import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Skeleton } from '@repo/ui'
+import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Icon, Skeleton } from '@repo/ui'
 import { useFormatter, useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
 import type { LogDocument } from '@/app/api/logs/route'
-import { Icon } from '@repo/ui'
 import { ApplicationCategoryBadge } from '@/components/module/application/badge'
 
 export type DashboardCardProps = {
