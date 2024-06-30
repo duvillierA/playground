@@ -4,8 +4,6 @@ import type { LucideProps } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { memo } from 'react'
 
-import type { IconName } from './dynamicIconImports'
-
 export type { IconName } from './dynamicIconImports'
 
 export interface IconProps extends Omit<LucideProps, 'ref'> {
@@ -22,4 +20,4 @@ const Icon = memo((props: IconProps) => <IconLazy {...props} />)
 
 Icon.displayName = 'Icon'
 
-export default Icon
+export { Icon }

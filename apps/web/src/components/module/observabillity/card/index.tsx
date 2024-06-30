@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import Icon from '@/components/common/icon'
+import { Icon } from '@repo/ui'
 import { IntlDateTime } from '@/components/common/intl/date/dateTime'
 import { IntlNumber } from '@/components/common/intl/number'
 import { DashboardCard, DashboardCardContent, type DashboardCardProps } from '@/components/module/dashboard/card'

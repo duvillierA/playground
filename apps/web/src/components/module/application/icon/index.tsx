@@ -1,5 +1,6 @@
+import { Icon, type IconName, type IconProps } from '@repo/ui'
+
 import type { ApplicationDocument } from '@/app/api/applications/route'
-import Icon, { type IconName, type IconProps } from '@/components/common/icon'
 
 export const getApplicationIcon = (code: ApplicationDocument['code']): IconName => {
   switch (code) {

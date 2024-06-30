@@ -1,8 +1,8 @@
 import { cn } from '@repo/lib'
+import { Icon } from '@repo/ui'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import Icon from '@/components/common/icon'
 import NavMenu from '@/components/layout/nav/Menu'
 import NavMenuItem from '@/components/layout/nav/Menu/Item'
 import { PageLink } from '@/components/page/link'

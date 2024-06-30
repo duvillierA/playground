@@ -1,8 +1,7 @@
 import { cn } from '@repo/lib'
-import { Badge } from '@repo/ui'
+import { Badge, Icon } from '@repo/ui'
 
 import type { CommandsDocument } from '@/app/api/commands/route'
-import Icon from '@/components/common/icon'
 
 export const CommandBadge: React.FC<{ command: CommandsDocument }> = ({ command }) => {
   return (

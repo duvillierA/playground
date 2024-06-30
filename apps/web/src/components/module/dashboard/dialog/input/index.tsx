@@ -2,7 +2,7 @@ import { Input } from '@repo/ui'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import Icon from '@/components/common/icon'
+import { Icon } from '@repo/ui'
 import { Kbd } from '@/components/ui/kbd'
 
 export const DashboardDialogInput: React.FC<{

@@ -4,7 +4,7 @@ import { toast } from 'sonner'
 
 import type { ApplicationDocument } from '@/app/api/applications/route'
 import type { CommandsDocument } from '@/app/api/commands/route'
-import Icon from '@/components/common/icon'
+import { Icon } from '@repo/ui'
 import { ApplicationCategoryBadge } from '@/components/module/application/badge'
 import { ApplicationMenu } from '@/components/module/application/menu'
 import { CategoryControl, type CategoryControlProps } from '@/components/module/category/control'

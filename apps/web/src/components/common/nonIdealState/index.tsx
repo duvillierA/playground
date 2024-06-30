@@ -1,5 +1,5 @@
-import type { IconName } from '../icon'
-import Icon from '../icon'
+import type { IconName } from '@repo/ui'
+import { Icon } from '@repo/ui'
 
 export const NonIdealState: React.FC<{
   icon: IconName

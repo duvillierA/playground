@@ -1,5 +1,6 @@
+import { Icon, type IconName, type IconProps } from '@repo/ui'
+
 import type { CategoriesDocument } from '@/app/api/categories/route'
-import Icon, { type IconName, type IconProps } from '@/components/common/icon'
 
 export const getCategoryIcon = (category: CategoriesDocument): IconName => {
   switch (category) {
