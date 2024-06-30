@@ -1,3 +1,5 @@
+import { fetcher, type FetcherProps } from '@repo/lib'
+
 import type { ApplicationRequest } from '@/app/api/applications/route'
 import type { CategoriesRequest } from '@/app/api/categories/route'
 import type { CommandsRequest } from '@/app/api/commands/route'
@@ -21,7 +23,7 @@ const apiRoute = {
     pathname: '/api/commands',
     method: 'GET'
   }
-} satisfies Record<string, { pathname: string; method: 'GET' | 'POST' }>
+} satisfies Record<string, Pick<FetcherProps, 'pathname' | 'method'>>
 
 export type ApiRequest = {
   getCategories: CategoriesRequest
@@ -30,29 +32,13 @@ export type ApiRequest = {
   getCommands: CommandsRequest
 }
 
-const fetcher = (pathname: string, method: 'GET' | 'POST', body?: Record<string, unknown>, opts?: RequestInit) => {
-  const url = new URL(pathname, config.server.host)
-  const options: RequestInit = {
-    ...opts,
-    method,
-    headers: {
-      'content-type': 'application/json;charset=UTF-8'
-    }
-  }
-
-  if (body && Object.keys(body).length > 0) {
-    if (method === 'POST') {
-      options.body = JSON.stringify(body)
-    } else {
-      url.pathname = `${url.pathname}?${new URLSearchParams(body as Record<string, string>)}`
-    }
-  }
-  return fetch(url, options).then((res) => {
-    return res.json()
-  })
-}
-
 export const api = <Action extends keyof ApiRequest>(action: Action, body: ApiRequest[Action]['body'], opts?: RequestInit): Promise<ApiRequest[Action]['response']> => {
   const { pathname, method } = apiRoute[action]
-  return fetcher(pathname, method, body, opts)
+  return fetcher({
+    host: config.server.host,
+    pathname,
+    method,
+    body,
+    opts
+  })
 }
