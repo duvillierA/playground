@@ -27,6 +27,12 @@ export const intlPageUrl = {
   id: 'IntlPage'
 } satisfies Page
 
+export const dashboardPageUrl = {
+  title: 'DashboardPage.title',
+  pathname: '/[locale]/intl',
+  id: 'DashboardPage'
+} satisfies Page
+
 export const sitemap = {
-  pages: [indexPageUrl, aboutPageUrl, intlPageUrl] satisfies Page[]
+  pages: [indexPageUrl, aboutPageUrl, intlPageUrl, dashboardPageUrl] satisfies Page[]
 } as const

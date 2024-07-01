@@ -1,6 +1,5 @@
+import { cn } from '@repo/lib'
 import React, { type PropsWithChildren } from 'react'
-
-import { cn } from '@/lib/styles'
 
 type NavMenuProps = PropsWithChildren<{
   className?: string

@@ -5,15 +5,16 @@ const animate = require('tailwindcss-animate')
 /**
  * @type {import('tailwindcss').Config}
  */
+
 const config = {
-  content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['../../packages/ui/src/components/**/*.{js,ts,jsx,tsx,mdx}'],
   darkMode: ['class'],
   theme: {
     container: {
       center: true,
       padding: '1rem',
       screens: {
-        '2xl': '1400px'
+        '2xl': '1368px'
       }
     },
     extend: {
@@ -42,6 +43,28 @@ const config = {
         accent: {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))'
+        },
+        application: {
+          data: {
+            DEFAULT: 'hsl(var(--application-data))',
+            foreground: 'hsl(var(--application-data-foreground))'
+          },
+          security: {
+            DEFAULT: 'hsl(var(--application-security))',
+            foreground: 'hsl(var(--application-security-foreground))'
+          },
+          tools: {
+            DEFAULT: 'hsl(var(--application-tools))',
+            foreground: 'hsl(var(--application-tools-foreground))'
+          },
+          store: {
+            DEFAULT: 'hsl(var(--application-store))',
+            foreground: 'hsl(var(--application-store-foreground))'
+          },
+          settings: {
+            DEFAULT: 'hsl(var(--application-settings))',
+            foreground: 'hsl(var(--application-settings-foreground))'
+          }
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',

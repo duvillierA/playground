@@ -11,7 +11,12 @@
     "noEmit": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
-    "inlineSourceMap": false
+    "inlineSourceMap": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": ["node_modules", ".next", "dist"]
 }

@@ -1,6 +1,6 @@
 import React, { type PropsWithChildren } from 'react'
 
-import { PageLink } from '@/components/page'
+import { PageLink } from '@/components/page/link'
 import { type Page } from '@/config/sitemap'
 
 type NavMenuItemProps = PropsWithChildren<{

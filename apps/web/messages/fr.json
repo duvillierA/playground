@@ -6,13 +6,60 @@
       "description": "Description de la page à propos"
     }
   },
+  "Access": {
+    "title": "Accès",
+    "period": "Accès pendant {count, plural, =0 {jour} =1 {jour} other {# jours}}"
+  },
   "Common": {
+    "all": "Tous",
+    "close": "Fermer",
+    "language": "{locale, select, en {English} fr {Français} other {Inconnu}}",
     "menu": "Menu",
     "meta": {
-      "title" :"Titre par défault",
-      "description": "Description par défault"
+      "title": "Titre par défaut",
+      "description": "Description par défaut"
     },
-    "language":  "{locale, select, en {English} fr {Français} other {Inconnu}}"
+    "navigate": "Naviguer",
+    "open": "Ouvrir",
+    "recent": "Récent",
+    "saved": "Enregistré",
+    "search": "Recherche",
+    "time": "Temps",
+    "totalViews": "Vues totales",
+    "updated": "Mis à jour",
+    "updatedAt": "Mis à jour le {date, date, short} à {time, time, short}",
+    "updatedAtDate": "Mis à jour le {date, date, short}",
+    "updatedAtTime": "Mis à jour à {time, time, short}",
+    "updatedRelative": "Mis à jour {time}",
+    "viewMore": "Voir plus"
+  },
+  "Command": {
+    "title": "Trouvez des infos, posez des questions ou exécutez des requêtes",
+    "forCommands": "pour les commandes"
+  },
+  "DashboardPage": {
+    "title": "Recherchez tout",
+    "meta": {
+      "title": "Tableau de bord",
+      "description": "Description du tableau de bord"
+    }
+  },
+  "Log": {
+    "title": "Logs",
+    "update": "{count, plural, =0 {aucun log} =1 {un log} other {# nouveaux logs}} depuis la mise à jour",
+    "relative": "Logs / Date"
+  },
+  "Query": {
+    "title": "Requêtes",
+    "database": "Requêtes de base de données",
+    "total": "Total des requêtes",
+    "weeklyTrend": "Tendance hebdomadaire"
+  },
+  "Sidecar": {
+    "title": "Sidecars"
+  },
+  "Observability": {
+    "title": "Observabilité"
   },
   "IndexPage": {
     "title": "Page d'accueil",
@@ -24,7 +71,7 @@
   "IntlPage": {
     "title": "Intl",
     "meta": {
-      "title" :"Intl",
+      "title": "Intl",
       "description": "Description de la page Intl"
     }
   }

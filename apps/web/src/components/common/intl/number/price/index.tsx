@@ -1,4 +1,4 @@
-import { IntlNumber } from '@/components/common/intl/number/default'
+import { IntlNumber } from '@/components/common/intl/number'
 
 export type IntlPriceProps = {
   asCents?: boolean

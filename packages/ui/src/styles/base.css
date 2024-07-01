@@ -31,6 +31,21 @@
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
 
+    --application-data: 221 90% 60%;
+    --application-data-foreground: 0 0% 98%;
+
+    --application-security: 239 80% 60%;
+    --application-security-foreground: 0 0% 98%;
+
+    --application-tools: 259 70% 60%;
+    --application-tools-foreground: 0 0% 98%;
+
+    --application-store: 227 11% 30%;
+    --application-store-foreground: 0 0% 98%;
+
+    --application-settings: 227 11% 20%;
+    --application-settings-foreground: 0 0% 98%;
+
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
