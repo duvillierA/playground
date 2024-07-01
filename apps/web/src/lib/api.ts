@@ -32,13 +32,13 @@ export type ApiRequest = {
   getCommands: CommandsRequest
 }
 
-export const api = <Action extends keyof ApiRequest>(action: Action, body: ApiRequest[Action]['body'], opts?: RequestInit): Promise<ApiRequest[Action]['response']> => {
+export const api = <Action extends keyof ApiRequest>(action: Action, params: ApiRequest[Action]['body'], opts?: RequestInit): Promise<ApiRequest[Action]['response']> => {
   const { pathname, method } = apiRoute[action]
   return fetcher({
     host: config.server.host,
     pathname,
     method,
-    body,
+    params,
     opts
   })
 }

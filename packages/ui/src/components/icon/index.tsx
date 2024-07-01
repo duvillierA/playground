@@ -4,7 +4,9 @@ import type { LucideProps } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { memo } from 'react'
 
-export type { IconName } from './dynamicIconImports'
+import type { IconName } from './dynamicIconImports'
+
+export type { IconName }
 
 export interface IconProps extends Omit<LucideProps, 'ref'> {
   name: IconName

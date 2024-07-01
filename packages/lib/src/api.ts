@@ -24,7 +24,8 @@ export const fetcher = ({ host, pathname, method, params, opts }: FetcherProps) 
     ...opts,
     method,
     headers: {
-      'content-type': 'application/json;charset=UTF-8'
+      'content-type': 'application/json;charset=UTF-8',
+      ...opts?.headers
     }
   }
 
@@ -32,10 +33,10 @@ export const fetcher = ({ host, pathname, method, params, opts }: FetcherProps) 
     if (method === 'POST') {
       options.body = JSON.stringify(params)
     } else {
-      url.pathname = addQueryParams(url, params).pathname
+      url.search = addQueryParams(url, params).search
     }
   }
-  return fetch(url, options).then((res) => {
+  return fetch(url.toString(), options).then((res) => {
     return res.json()
   })
 }
