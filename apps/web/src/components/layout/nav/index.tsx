@@ -1,14 +1,13 @@
-import { Home } from 'lucide-react'
+import { cn } from '@repo/lib'
+import { Icon } from '@repo/ui'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 
-import { PageLink } from '@/components/page'
+import NavMenu from '@/components/layout/nav/Menu'
+import NavMenuItem from '@/components/layout/nav/Menu/Item'
+import { PageLink } from '@/components/page/link'
 import { LocaleSwitcher } from '@/components/page/localeSwitcher'
 import { aboutPageUrl, indexPageUrl, intlPageUrl } from '@/config/sitemap'
-import { cn } from '@/lib/styles'
-
-import NavMenu from './Menu'
-import NavMenuItem from './Menu/Item'
 
 type NavProps = {
   title?: string
@@ -23,7 +22,7 @@ export const Nav: React.FC<NavProps> = ({ title, className }) => {
         <div className="flex items-center space-x-6">
           <PageLink page={indexPageUrl}>
             <span className="flex items-center space-x-2">
-              <Home className="size-4" />
+              <Icon name="home" className="size-4" />
               <span className="hidden sm:inline-block">{title ?? 'Playground'}</span>
             </span>
           </PageLink>

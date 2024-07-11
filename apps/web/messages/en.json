@@ -6,13 +6,60 @@
       "description": "About page description"
     }
   },
+  "Access": {
+    "title": "Access",
+    "period": "Access over {count, plural, =0 {day} =1 {day} other {# days}}"
+  },
   "Common": {
+    "all": "All",
+    "close": "Close",
+    "language":  "{locale, select, en {English} fr {Français} other {Unknown}}",
     "menu": "Menu",
     "meta": {
       "title" :"Common page title",
       "description": "Common page description"
     },
-    "language":  "{locale, select, en {English} fr {Français} other {Unknown}}"
+    "navigate": "Navigate",
+    "open": "Open",
+    "recent": "Recent",
+    "saved": "Saved",
+    "search": "Search",
+    "time": "Time",
+    "totalViews": "Total views",
+    "updated": "Updated",
+    "updatedAt": "Updated at {date, date, short} {time, time, short}",
+    "updatedAtDate": "Updated at {date, date, short}",
+    "updatedAtTime": "Updated at {time, time, short}",
+    "updatedRelative": "Updated {time}",
+    "viewMore": "View more"
+  },
+  "Command": {
+    "title": "Find info, ask questions or run queries",
+    "forCommands": "for commands"
+  },
+  "DashboardPage": {
+    "title": "Search for anything",
+    "meta": {
+      "title" :"Dashboard",
+      "description": "Dashboard description"
+    }
+  },
+  "Log": {
+    "title": "Logs",
+    "update": "{count, plural, =0 {no log} =1 {one log} other {# new logs}} since update",
+    "relative": "Logs / Time"
+  },
+  "Query": {
+    "title": "Queries",
+    "database": "Queries in database",
+    "total": "Total queries",
+    "weeklyTrend": "Weekly trend"
+  },
+  "Sidecar": {
+    "title": "Sidecars"
+  },
+  "Observability": {
+    "title": "Observabillity"
   },
   "IndexPage": {
     "title": "Home",

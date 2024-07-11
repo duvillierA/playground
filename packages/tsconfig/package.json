@@ -2,9 +2,6 @@
   "name": "@repo/tsconfig",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "build": "echo 'no build'"
-  },
   "exports": {
     "./apps": "./apps.json",
     "./base": "./base.json",
