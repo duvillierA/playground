@@ -55,6 +55,7 @@
     ]
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "precommit": "lint-staged",
     "build": "turbo build",
     "dev": "turbo dev",
@@ -64,5 +65,5 @@
     "start": "turbo start --log-order=stream",
     "size": "turbo run size"
   },
-  "packageManager": "npm@10.1.0"
+  "packageManager": "pnpm@9.6.0"
 }
