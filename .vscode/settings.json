@@ -1,4 +1,5 @@
 {
+  "npm.packageManager": "pnpm",
   "editor.codeActionsOnSave": {
     "source.removeUnusedImports": "explicit",
     "source.addMissingImports": "explicit",
@@ -18,7 +19,7 @@
     "**/deployment": true,
     ".eslintcache": true,
     ".stylelintcache": true,
-    "**/storybook-static": true
+    "**/storybook-static": true,
   },
   "search.exclude": {
     "**/.next": true,
@@ -28,6 +29,7 @@
     "**/.circleci": true,
     "**/.github": true,
     "**/deployment": true,
+    "pnpm-lock.yaml": true,
     ".eslintcache": true,
     ".stylelintcache": true,
     "package-lock.json": true,

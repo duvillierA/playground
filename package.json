@@ -22,7 +22,6 @@
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-next": "^14.2.3",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jest-dom": "^5.4.0",
     "eslint-plugin-jest-formatting": "^3.1.0",
     "eslint-plugin-json": "^2.1.2",
@@ -55,6 +54,7 @@
     ]
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "precommit": "lint-staged",
     "build": "turbo build",
     "dev": "turbo dev",
@@ -64,5 +64,5 @@
     "start": "turbo start --log-order=stream",
     "size": "turbo run size"
   },
-  "packageManager": "npm@10.1.0"
+  "packageManager": "pnpm@9.6.0"
 }
