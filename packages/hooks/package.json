@@ -9,6 +9,10 @@
     "lint": "eslint  \"./src/**/*.{ts,tsx}\"",
     "lint-fix": "eslint  \"./src/**/*.{ts,tsx}\" --fix"
   },
+  "devDependencies": {
+    "@repo/eslint-config-custom": "workspace:*",
+    "@repo/tsconfig": "workspace:*"
+  },
   "peerDependencies": {
     "react": "^18.3.1"
   }
