@@ -1,27 +1,32 @@
+name: Auto Rebase PRs on Main Changes (Excluding Drafts, `no-rebase` Label, and `main` Branch)
+
 on:
   push:
     branches:
-      - main  # Déclencher quand main évolue
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
+      - main  # Déclenché lorsqu'il y a un push sur la branche main
+
+permissions:
+  contents: write  # Autorisations d'écriture pour le token
 
 jobs:
-  rebase:
-    if: github.event.pull_request.draft == false  # Ne rebase que si ce n'est pas une PR draft
+  list-and-rebase-prs:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Rebase PR branch
+    - name: List Open PRs (Excluding Drafts, `no-rebase` Label, and Main Branch)
       run: |
-        git fetch origin main
-        git checkout ${{ github.event.pull_request.head.ref }}  # Checkout la branche de la PR
-        git rebase origin/main
-        git push --force-with-lease
+        # Liste des PRs ouvertes qui ne sont pas en draft et n'ont pas le label `no-rebase`
+        pr_branches=$(gh pr list --state open --json headRefName,draft,labels --jq '.[] | select(.draft == false) | select([.labels[].name] | index("no-rebase") | not) | select(.headRefName != "main") | .headRefName')
+
+        for branch in $pr_branches; do
+          echo "Rebasing $branch"
+          git checkout $branch
+          git fetch origin main
+          git rebase origin/main
+          git push --force-with-lease
+        done
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
