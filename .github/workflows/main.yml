@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - main  # Déclencher quand main évolue
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  rebase:
+    if: github.event.pull_request.draft == false  # Ne rebase que si ce n'est pas une PR draft
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Rebase PR branch
+      run: |
+        git fetch origin main
+        git checkout ${{ github.event.pull_request.head.ref }}  # Checkout la branche de la PR
+        git rebase origin/main
+        git push --force-with-lease
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
