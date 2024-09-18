@@ -19,7 +19,7 @@ jobs:
     - name: List Open PRs (Excluding Drafts, `no-rebase` Label, and Main Branch)
       run: |
         # Liste des PRs ouvertes qui ne sont pas en draft et n'ont pas le label `no-rebase`
-        pr_branches=$(gh pr list --state open --json headRefName,draft,labels --jq '.[] | select(.draft == false) | select([.labels[].name] | index("no-rebase") | not) | select(.headRefName != "main") | .headRefName')
+        pr_branches=$(gh pr list --state open --json headRefName,draft,labels --jq '.[] | select(.isDraft == false) | select([.labels[].name] | index("no-rebase") | not) | select(.headRefName != "main") | .headRefName')
 
         for branch in $pr_branches; do
           echo "Rebasing $branch"
