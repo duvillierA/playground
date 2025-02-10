@@ -1,6 +1,6 @@
 ## Web stack playground
 
-This is a playground to test and learn about the web stack. [Visit the preview website](https://playground-web-six.vercel.app/fr](https://playground-web-six.vercel.app/en/dashboard).
+This is a playground to test and learn about the web stack. [Visit the preview website](https://playground-web-six.vercel.app/en/dashboard).
 
 #### The stack used in the provided code includes the following:
 
